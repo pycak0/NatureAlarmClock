@@ -20,7 +20,18 @@ class AlarmsViewController: UIViewController {
         configureViews()
     }
     
-    func configureViews() {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "SettingsScreen":
+            guard let vc = segue.destination as? SettingsViewController,
+                let mode = sender as? AlarmView.AlarmMode else { return }
+            vc.mode = mode
+        default:
+            break
+        }
+    }
+    
+    private func configureViews() {
         wakeupAlarmView.mode = .wakeUp
         wakeupAlarmView.time = "7:30 - 8:00"
         wakeupAlarmView.delegate = self
@@ -34,7 +45,7 @@ class AlarmsViewController: UIViewController {
 extension AlarmsViewController: AlarmViewDelegate {
     
     func alarmView(_ alarmView: AlarmView, didPressSettingsButton settingsButton: UIButton) {
-        print("settings button pressed")
+        performSegue(withIdentifier: "SettingsScreen", sender: alarmView.mode)
     }
     
     func alarmView(_ alarmView: AlarmView, didPressSwitchButton switchButton: UIButton) {

@@ -20,6 +20,12 @@
 		A4782EBC24C58D75002CA812 /* AlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4782EBB24C58D75002CA812 /* AlarmView.swift */; };
 		A4B479A524C59A2D00944FA0 /* AlarmsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B479A424C59A2D00944FA0 /* AlarmsViewController.swift */; };
 		A4B479A724C5A2F200944FA0 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B479A624C5A2F200944FA0 /* Colors.swift */; };
+		A4B479A924C5ABEC00944FA0 /* AlarmNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B479A824C5ABEC00944FA0 /* AlarmNavigationBarView.swift */; };
+		A4B479AB24C5AC1F00944FA0 /* AlarmNavigationBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4B479AA24C5AC1F00944FA0 /* AlarmNavigationBarView.xib */; };
+		A4B479AD24C5B52C00944FA0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B479AC24C5B52C00944FA0 /* SettingsViewController.swift */; };
+		A4B479B024C5C4C800944FA0 /* SoundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B479AF24C5C4C800944FA0 /* SoundCell.swift */; };
+		A4B479B224C5C5F100944FA0 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B479B124C5C5F100944FA0 /* Sound.swift */; };
+		A4B479B524C5CE3000944FA0 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B479B424C5CE3000944FA0 /* SectionHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +44,12 @@
 		A4782EBB24C58D75002CA812 /* AlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmView.swift; sourceTree = "<group>"; };
 		A4B479A424C59A2D00944FA0 /* AlarmsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmsViewController.swift; sourceTree = "<group>"; };
 		A4B479A624C5A2F200944FA0 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		A4B479A824C5ABEC00944FA0 /* AlarmNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmNavigationBarView.swift; sourceTree = "<group>"; };
+		A4B479AA24C5AC1F00944FA0 /* AlarmNavigationBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlarmNavigationBarView.xib; sourceTree = "<group>"; };
+		A4B479AC24C5B52C00944FA0 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		A4B479AF24C5C4C800944FA0 /* SoundCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundCell.swift; sourceTree = "<group>"; };
+		A4B479B124C5C5F100944FA0 /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
+		A4B479B424C5CE3000944FA0 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +107,8 @@
 		A4782EAC24C58100002CA812 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A4B479B324C5CDFE00944FA0 /* Supplementaries */,
+				A4B479AE24C5C4AD00944FA0 /* Cells */,
 				A4782EAD24C5810E002CA812 /* Storyboards */,
 				A4782EB024C581CB002CA812 /* CustomViews */,
 			);
@@ -113,6 +127,7 @@
 		A4782EAE24C58120002CA812 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A4B479B124C5C5F100944FA0 /* Sound.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -121,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				A4B479A424C59A2D00944FA0 /* AlarmsViewController.swift */,
+				A4B479AC24C5B52C00944FA0 /* SettingsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -130,6 +146,8 @@
 			children = (
 				A4782EB424C58428002CA812 /* AlarmView.xib */,
 				A4782EBB24C58D75002CA812 /* AlarmView.swift */,
+				A4B479A824C5ABEC00944FA0 /* AlarmNavigationBarView.swift */,
+				A4B479AA24C5AC1F00944FA0 /* AlarmNavigationBarView.xib */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -150,6 +168,22 @@
 				A4782EB924C58946002CA812 /* sleepImageBig.png */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		A4B479AE24C5C4AD00944FA0 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A4B479AF24C5C4C800944FA0 /* SoundCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		A4B479B324C5CDFE00944FA0 /* Supplementaries */ = {
+			isa = PBXGroup;
+			children = (
+				A4B479B424C5CE3000944FA0 /* SectionHeaderView.swift */,
+			);
+			path = Supplementaries;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,6 +244,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4B479AB24C5AC1F00944FA0 /* AlarmNavigationBarView.xib in Resources */,
 				A4782EB824C58687002CA812 /* wakeupImageBig.png in Resources */,
 				A4782EBA24C58946002CA812 /* sleepImageBig.png in Resources */,
 				A4782EA424C580D6002CA812 /* LaunchScreen.storyboard in Resources */,
@@ -227,12 +262,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4B479A524C59A2D00944FA0 /* AlarmsViewController.swift in Sources */,
+				A4B479B224C5C5F100944FA0 /* Sound.swift in Sources */,
 				A4782E9F24C580D4002CA812 /* NatureAlarmClock.xcdatamodeld in Sources */,
 				A4782E9524C580D4002CA812 /* AppDelegate.swift in Sources */,
+				A4B479B024C5C4C800944FA0 /* SoundCell.swift in Sources */,
 				A4B479A724C5A2F200944FA0 /* Colors.swift in Sources */,
 				A4782EBC24C58D75002CA812 /* AlarmView.swift in Sources */,
+				A4B479B524C5CE3000944FA0 /* SectionHeaderView.swift in Sources */,
+				A4B479A924C5ABEC00944FA0 /* AlarmNavigationBarView.swift in Sources */,
 				A4782EB324C582DD002CA812 /* VCExtensions.swift in Sources */,
 				A4782E9724C580D4002CA812 /* SceneDelegate.swift in Sources */,
+				A4B479AD24C5B52C00944FA0 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,7 +419,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N8U99CLXJ5;
 				INFOPLIST_FILE = NatureAlarmClock/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -398,7 +438,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N8U99CLXJ5;
 				INFOPLIST_FILE = NatureAlarmClock/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

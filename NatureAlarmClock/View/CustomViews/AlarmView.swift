@@ -31,7 +31,7 @@ class AlarmView: UIView {
             return self == .sleep ? "Я засыпаю" : "Я просыпаюсь"
         }
         
-        var timeBackgroundColor: UIColor? {
+        var color: UIColor {
             return self == .sleep ? .blueSleep : .pinkWakeup
         }
     }
@@ -97,7 +97,7 @@ private extension AlarmView {
     func configureViews(_ mode: AlarmMode) {
         imageView.image = mode.image
         messageLabel.text = mode.message
-        timeLabel.backgroundColor = mode.timeBackgroundColor
+        timeLabel.backgroundColor = mode.color
         
         timeLabel.layer.cornerRadius = timeLabel.frame.height / 2
     }

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8BR-MO-wyE">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -12,18 +13,18 @@
             <objects>
                 <viewController id="mly-QF-MJC" customClass="AlarmsViewController" customModule="NatureAlarmClock" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rpF-Xx-F2U">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="5Ms-3O-tpc">
-                                <rect key="frame" x="16" y="108" width="382" height="734"/>
+                                <rect key="frame" x="16" y="64" width="343" height="583"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JHx-KR-pV7" customClass="AlarmView" customModule="NatureAlarmClock" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="347"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="271.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ls4-cT-i4Z" customClass="AlarmView" customModule="NatureAlarmClock" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="387" width="382" height="347"/>
+                                        <rect key="frame" x="0.0" y="311.5" width="343" height="271.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
@@ -42,15 +43,109 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YVM-Qk-fAB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="H1h-86-Lxx"/>
+                    <navigationItem key="navigationItem" id="H1h-86-Lxx">
+                        <barButtonItem key="backBarButtonItem" title=" " id="u0j-uZ-4a2"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="sleepAlarmView" destination="Ls4-cT-i4Z" id="wvY-QF-d1L"/>
                         <outlet property="wakeupAlarmView" destination="JHx-KR-pV7" id="16N-nf-kmT"/>
+                        <segue destination="55v-Co-F5s" kind="show" identifier="SettingsScreen" id="3Qg-7z-QfE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IOy-Cl-cSO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="578.26086956521749" y="-107.14285714285714"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="Iif-f3-G1X">
+            <objects>
+                <viewController id="55v-Co-F5s" customClass="SettingsViewController" customModule="NatureAlarmClock" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dvO-HK-aTG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Z6E-q8-SlE">
+                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7SV-ro-Oxp">
+                                    <size key="itemSize" width="130" height="173"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SoundCell" id="gjS-Mh-Iq9" customClass="SoundCell" customModule="NatureAlarmClock" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="130" height="173"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="B9m-Jp-chI">
+                                            <rect key="frame" x="0.0" y="0.0" width="130" height="173"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="soundImage" translatesAutoresizingMaskIntoConstraints="NO" id="rYf-iF-UUq">
+                                                    <rect key="frame" x="0.0" y="0.0" width="130" height="143"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DVV-gq-mgs">
+                                                    <rect key="frame" x="30" y="30" width="70" height="83"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <state key="normal" image="Play"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Рассвет" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ald-DP-28s">
+                                                    <rect key="frame" x="0.0" y="151" width="130" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="130" height="173"/>
+                                        <connections>
+                                            <outlet property="imageView" destination="rYf-iF-UUq" id="Up2-YE-1Zt"/>
+                                            <outlet property="playButton" destination="DVV-gq-mgs" id="cms-MY-Hbn"/>
+                                            <outlet property="soundNameLabel" destination="Ald-DP-28s" id="FJ3-BU-2q9"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="SectionHeaderView" id="V87-Vy-sOr" customClass="SectionHeaderView" customModule="NatureAlarmClock" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AQY-8B-6PS">
+                                            <rect key="frame" x="8" y="14.5" width="359" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="AQY-8B-6PS" firstAttribute="leading" secondItem="V87-Vy-sOr" secondAttribute="leadingMargin" id="eU3-Zz-MbP"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="AQY-8B-6PS" secondAttribute="trailing" id="huN-Oy-cex"/>
+                                        <constraint firstItem="AQY-8B-6PS" firstAttribute="centerY" secondItem="V87-Vy-sOr" secondAttribute="centerY" id="wUq-yo-xMn"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="titleLabel" destination="AQY-8B-6PS" id="Ftx-VF-ZFo"/>
+                                    </connections>
+                                </collectionReusableView>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="HzQ-EF-C1y" firstAttribute="trailing" secondItem="Z6E-q8-SlE" secondAttribute="trailing" id="4bi-rA-vvT"/>
+                            <constraint firstItem="Z6E-q8-SlE" firstAttribute="top" secondItem="dvO-HK-aTG" secondAttribute="top" constant="120" id="Neb-7Y-vJT"/>
+                            <constraint firstItem="Z6E-q8-SlE" firstAttribute="leading" secondItem="HzQ-EF-C1y" secondAttribute="leading" id="wvi-PY-j9D"/>
+                            <constraint firstItem="HzQ-EF-C1y" firstAttribute="bottom" secondItem="Z6E-q8-SlE" secondAttribute="bottom" id="xvf-X9-H1i"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="HzQ-EF-C1y"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="6vk-pC-LaP"/>
+                    <connections>
+                        <outlet property="settingsCollectionView" destination="Z6E-q8-SlE" id="J6z-n1-ix8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="901-qE-03r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1413.5999999999999" y="-107.49625187406298"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vjJ-zw-shO">
@@ -58,8 +153,11 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8BR-MO-wyE" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="COq-sN-VNa">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -71,4 +169,8 @@
             <point key="canvasLocation" x="-331.8840579710145" y="-107.14285714285714"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Play" width="50" height="50"/>
+        <image name="soundImage" width="160" height="160"/>
+    </resources>
 </document>

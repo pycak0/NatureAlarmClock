@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AlarmNavigationBarView" customModule="NatureAlarmClock" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="w0K-2l-Gwx"/>
+                <outlet property="imageView" destination="Zbt-0L-Pwm" id="eYk-s2-6YK"/>
+                <outlet property="titleLabel" destination="K9p-yH-Bd7" id="OnB-wa-5Z3"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="493" height="120"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="alarm" translatesAutoresizingMaskIntoConstraints="NO" id="Zbt-0L-Pwm">
+                    <rect key="frame" x="226" y="30" width="40" height="40"/>
+                    <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="Zbt-0L-Pwm" secondAttribute="height" multiplier="1:1" id="OqP-rF-Dyc"/>
+                        <constraint firstAttribute="width" constant="40" id="zGN-77-7Y7"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9p-yH-Bd7">
+                    <rect key="frame" x="0.0" y="90" width="493" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="Zbt-0L-Pwm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="8nq-ig-2qR"/>
+                <constraint firstAttribute="trailing" secondItem="K9p-yH-Bd7" secondAttribute="trailing" id="LaF-o5-m0D"/>
+                <constraint firstItem="K9p-yH-Bd7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="SeB-0Z-1rm"/>
+                <constraint firstItem="K9p-yH-Bd7" firstAttribute="top" secondItem="Zbt-0L-Pwm" secondAttribute="bottom" constant="20" id="UzS-RW-r7c"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="K9p-yH-Bd7" secondAttribute="bottom" id="jTH-oU-Vm7"/>
+                <constraint firstItem="K9p-yH-Bd7" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="pw7-KQ-vYs"/>
+                <constraint firstItem="Zbt-0L-Pwm" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="vW7-M2-H8S"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="229.71014492753625" y="232.36607142857142"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="alarm" width="60" height="60"/>
+    </resources>
+</document>
