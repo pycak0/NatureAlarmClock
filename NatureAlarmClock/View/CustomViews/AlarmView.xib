@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AlarmView" customModule="NatureAlarmClock" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="Vmx-kX-Wfs"/>
+                <outlet property="imageView" destination="MOa-ey-OkV" id="2dh-Na-zMm"/>
+                <outlet property="messageLabel" destination="PgP-Yw-Kzn" id="nFj-el-g5t"/>
+                <outlet property="settingsButton" destination="6M1-m0-g0g" id="EuY-cw-1Qx"/>
+                <outlet property="switchButton" destination="4Mm-rS-Ukv" id="ef1-MO-OZ0"/>
+                <outlet property="timeLabel" destination="QPe-sb-y7t" id="sbl-51-Tyg"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="358" height="251"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wakeupImageBig.png" translatesAutoresizingMaskIntoConstraints="NO" id="MOa-ey-OkV">
+                    <rect key="frame" x="54" y="0.5" width="250" height="250"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="MOa-ey-OkV" secondAttribute="height" multiplier="1:1" id="5xa-Yf-bQY"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Mm-rS-Ukv">
+                    <rect key="frame" x="4" y="108.5" width="30" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="afh-uW-t7R"/>
+                        <constraint firstAttribute="width" secondItem="4Mm-rS-Ukv" secondAttribute="height" multiplier="22:25" id="rtf-qL-7ZO"/>
+                    </constraints>
+                    <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" image="Power"/>
+                    <connections>
+                        <action selector="switchButtonPressed:" destination="-1" eventType="touchUpInside" id="mVN-C7-uVh"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6M1-m0-g0g">
+                    <rect key="frame" x="324" y="108.5" width="34" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="34" id="miO-Yh-VQd"/>
+                        <constraint firstAttribute="width" secondItem="6M1-m0-g0g" secondAttribute="height" multiplier="1:1" id="ny8-rO-TzX"/>
+                    </constraints>
+                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" image="Settings"/>
+                    <connections>
+                        <action selector="settingsButtonPressed:" destination="-1" eventType="touchUpInside" id="brE-IM-aYv"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Я просыпаюсь" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PgP-Yw-Kzn">
+                    <rect key="frame" x="54" y="111" width="250" height="29"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7:30 - 8:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QPe-sb-y7t">
+                    <rect key="frame" x="165" y="30.5" width="159" height="50"/>
+                    <color key="backgroundColor" red="0.94902116059999997" green="0.42798179390000002" blue="0.48751145600000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="rE4-dz-IdB"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="MOa-ey-OkV" secondAttribute="bottom" id="3Af-ho-ZQr"/>
+                <constraint firstItem="MOa-ey-OkV" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="41w-f8-lEk"/>
+                <constraint firstItem="4Mm-rS-Ukv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="leading" id="IPz-f7-D9y"/>
+                <constraint firstItem="PgP-Yw-Kzn" firstAttribute="trailing" secondItem="MOa-ey-OkV" secondAttribute="trailing" id="KAF-nr-MHJ"/>
+                <constraint firstItem="PgP-Yw-Kzn" firstAttribute="centerX" secondItem="MOa-ey-OkV" secondAttribute="centerX" id="KJw-G3-S6J"/>
+                <constraint firstItem="QPe-sb-y7t" firstAttribute="top" secondItem="MOa-ey-OkV" secondAttribute="top" constant="30" id="MJM-Rk-VMf"/>
+                <constraint firstItem="QPe-sb-y7t" firstAttribute="leading" secondItem="MOa-ey-OkV" secondAttribute="centerX" constant="-14" id="MVw-jK-hVP"/>
+                <constraint firstItem="MOa-ey-OkV" firstAttribute="leading" secondItem="4Mm-rS-Ukv" secondAttribute="trailing" constant="20" id="SY0-sL-2s4"/>
+                <constraint firstItem="6M1-m0-g0g" firstAttribute="leading" secondItem="MOa-ey-OkV" secondAttribute="trailing" constant="20" id="Sx3-EF-pX2"/>
+                <constraint firstItem="MOa-ey-OkV" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="UAk-Du-kP5"/>
+                <constraint firstItem="PgP-Yw-Kzn" firstAttribute="leading" secondItem="MOa-ey-OkV" secondAttribute="leading" id="cb1-ze-fih"/>
+                <constraint firstItem="QPe-sb-y7t" firstAttribute="trailing" secondItem="6M1-m0-g0g" secondAttribute="leading" id="fcZ-Tv-MJl"/>
+                <constraint firstItem="4Mm-rS-Ukv" firstAttribute="centerY" secondItem="MOa-ey-OkV" secondAttribute="centerY" id="g3r-nc-6Bn"/>
+                <constraint firstItem="MOa-ey-OkV" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" id="kbv-iE-e6c"/>
+                <constraint firstItem="6M1-m0-g0g" firstAttribute="centerY" secondItem="MOa-ey-OkV" secondAttribute="centerY" id="vLt-5P-PI0"/>
+                <constraint firstItem="PgP-Yw-Kzn" firstAttribute="centerY" secondItem="MOa-ey-OkV" secondAttribute="centerY" id="wWu-gX-38T"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6M1-m0-g0g" secondAttribute="trailing" id="wcD-nb-3yd"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-505.79710144927537" y="53.90625"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Power" width="44" height="50"/>
+        <image name="Settings" width="50" height="50"/>
+        <image name="wakeupImageBig.png" width="1140" height="1110"/>
+    </resources>
+</document>

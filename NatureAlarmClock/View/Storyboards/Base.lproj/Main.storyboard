@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8BR-MO-wyE">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Alarms View Controller-->
+        <scene sceneID="Veh-xa-hM4">
+            <objects>
+                <viewController id="mly-QF-MJC" customClass="AlarmsViewController" customModule="NatureAlarmClock" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rpF-Xx-F2U">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="5Ms-3O-tpc">
+                                <rect key="frame" x="16" y="108" width="382" height="734"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JHx-KR-pV7" customClass="AlarmView" customModule="NatureAlarmClock" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="347"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ls4-cT-i4Z" customClass="AlarmView" customModule="NatureAlarmClock" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="387" width="382" height="347"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Ls4-cT-i4Z" secondAttribute="trailing" id="abe-tp-3CH"/>
+                                    <constraint firstItem="Ls4-cT-i4Z" firstAttribute="leading" secondItem="5Ms-3O-tpc" secondAttribute="leading" id="wCs-ye-tfd"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="YVM-Qk-fAB" firstAttribute="bottom" secondItem="5Ms-3O-tpc" secondAttribute="bottom" constant="20" id="6NZ-Wi-4dN"/>
+                            <constraint firstItem="5Ms-3O-tpc" firstAttribute="leading" secondItem="rpF-Xx-F2U" secondAttribute="leading" constant="16" id="OED-ax-Wz2"/>
+                            <constraint firstItem="YVM-Qk-fAB" firstAttribute="trailing" secondItem="5Ms-3O-tpc" secondAttribute="trailing" constant="16" id="RaD-2b-QvO"/>
+                            <constraint firstItem="5Ms-3O-tpc" firstAttribute="top" secondItem="YVM-Qk-fAB" secondAttribute="top" constant="20" id="X7n-gv-LUc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YVM-Qk-fAB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="H1h-86-Lxx"/>
+                    <connections>
+                        <outlet property="sleepAlarmView" destination="Ls4-cT-i4Z" id="wvY-QF-d1L"/>
+                        <outlet property="wakeupAlarmView" destination="JHx-KR-pV7" id="16N-nf-kmT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IOy-Cl-cSO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="578.26086956521749" y="-107.14285714285714"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vjJ-zw-shO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8BR-MO-wyE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="COq-sN-VNa">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mly-QF-MJC" kind="relationship" relationship="rootViewController" id="V6G-PX-Jus"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hJO-I9-vzT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-331.8840579710145" y="-107.14285714285714"/>
+        </scene>
+    </scenes>
+</document>
