@@ -14,44 +14,108 @@ class SavedAlarms {
     
     static let general = SavedAlarms()
     
+    let defaults = UserDefaults.standard
+    
     enum AlarmDateKeys: String {
         case sleepStart, sleepEnd, wakeupStart, wakeupEnd
+        case isSleepAlarmSwitchedOn, isWakeAlarmSwitchedOn
     }
     
-    var sleepStartDate: Date? {
+    private var sleepStartDate: Date? {
         get {
-            UserDefaults.standard.value(forKey: AlarmDateKeys.sleepStart.rawValue) as? Date
+            defaults.value(forKey: AlarmDateKeys.sleepStart.rawValue) as? Date
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: AlarmDateKeys.sleepStart.rawValue)
+            defaults.set(newValue, forKey: AlarmDateKeys.sleepStart.rawValue)
         }
     }
     
-    var sleepEndDate: Date? {
+    private var sleepEndDate: Date? {
         get {
-            UserDefaults.standard.value(forKey: AlarmDateKeys.sleepEnd.rawValue) as? Date
+            defaults.value(forKey: AlarmDateKeys.sleepEnd.rawValue) as? Date
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: AlarmDateKeys.sleepEnd.rawValue)
+            defaults.set(newValue, forKey: AlarmDateKeys.sleepEnd.rawValue)
         }
     }
     
-    var wakeupStartDate: Date? {
+    private var wakeupStartDate: Date? {
         get {
-            UserDefaults.standard.value(forKey: AlarmDateKeys.wakeupStart.rawValue) as? Date
+            defaults.value(forKey: AlarmDateKeys.wakeupStart.rawValue) as? Date
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: AlarmDateKeys.wakeupStart.rawValue)
+            defaults.set(newValue, forKey: AlarmDateKeys.wakeupStart.rawValue)
         }
     }
     
-    var wakeupEndDate: Date? {
+    private var wakeupEndDate: Date? {
         get {
-            UserDefaults.standard.value(forKey: AlarmDateKeys.wakeupEnd.rawValue) as? Date
+            defaults.value(forKey: AlarmDateKeys.wakeupEnd.rawValue) as? Date
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: AlarmDateKeys.wakeupEnd.rawValue)
+            defaults.set(newValue, forKey: AlarmDateKeys.wakeupEnd.rawValue)
         }
     }
     
+    var isSleepAlarmSwitchedOn: Bool {
+        get {
+            defaults.bool(forKey: AlarmDateKeys.isSleepAlarmSwitchedOn.rawValue)
+        }
+        set {
+            defaults.set(newValue, forKey: AlarmDateKeys.isSleepAlarmSwitchedOn.rawValue)
+        }
+    }
+    
+    var isWakeAlarmSwitchedOn: Bool {
+        get {
+            defaults.bool(forKey: AlarmDateKeys.isWakeAlarmSwitchedOn.rawValue)
+        }
+        set {
+            defaults.set(newValue, forKey: AlarmDateKeys.isWakeAlarmSwitchedOn.rawValue)
+        }
+    }
+    
+    //MARK:- Save Dates 
+    func saveDates(mode: AlarmMode, startDate: Date, endDate: Date) {
+        switch mode {
+        case .sleep:
+            sleepStartDate = startDate
+            sleepEndDate = endDate
+        case .wakeUp:
+            wakeupStartDate = startDate
+            wakeupEndDate = endDate
+        }
+    }
+    
+    func startDate(_ mode: AlarmMode) -> Date? {
+        switch mode {
+        case .sleep:
+            return sleepStartDate
+        case .wakeUp:
+            return wakeupStartDate
+        }
+    }
+    
+    func endDate(_ mode: AlarmMode) -> Date? {
+        switch mode {
+        case .sleep:
+            return sleepEndDate
+        case .wakeUp:
+            return wakeupEndDate
+        }
+    }
+    
+    func alarmTime(_ mode: AlarmMode) -> AlarmTime? {
+        switch mode {
+        case .sleep:
+            if let start = sleepStartDate, let end = sleepEndDate {
+                return AlarmTime(startDate: start, endDate: end)
+            }
+        case .wakeUp:
+            if let start = wakeupStartDate, let end = wakeupEndDate {
+                return AlarmTime(startDate: start, endDate: end)
+            }
+        }
+        return nil
+    }
 }

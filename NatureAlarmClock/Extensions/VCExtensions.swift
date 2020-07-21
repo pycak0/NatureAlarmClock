@@ -49,7 +49,7 @@ extension UIViewController {
     }
     
     func navBarHeight(_ isTitleEnabled: Bool) -> CGFloat {
-        return isTitleEnabled ? 140 : 110
+        return isTitleEnabled ? 140 : 105
 //        return 120
 //        switch UIScreen.main.nativeBounds.height {
 //        case 2436, 2688, 1792:

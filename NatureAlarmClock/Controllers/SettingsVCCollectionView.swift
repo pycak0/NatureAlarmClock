@@ -58,7 +58,7 @@ extension SettingsViewController: UICollectionViewDataSource, UICollectionViewDe
     //MARK:- Delegate
     
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-        print("did highlight item at indexPath \(indexPath)")
+      //  print("did highlight item at indexPath \(indexPath)")
         guard let cell = collectionView.cellForItem(at: indexPath),
             Section(rawValue: indexPath.section)! != .time else { return }
         
@@ -72,7 +72,7 @@ extension SettingsViewController: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("did select item at indexPath \(indexPath)")
+    //    print("did select item at indexPath \(indexPath)")
         guard let sectionKind = Section(rawValue: indexPath.section) else {
             fatalError("Invalid section kind")
         }
@@ -103,10 +103,7 @@ extension SettingsViewController: UICollectionViewDelegateFlowLayout {
             let aspectRatio = CGFloat(10) / 13
             let width = (settingsCollectionView.frame.width - 2 * edgeinsets - interItemSpacing * (itemsPerRow - 1)) / itemsPerRow
             let height = width / aspectRatio
-            
-            print(settingsCollectionView.frame.width)
-            print(width)
-            
+                        
             return CGSize(width: width, height: height)
         }
     }

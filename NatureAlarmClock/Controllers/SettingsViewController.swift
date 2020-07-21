@@ -54,8 +54,12 @@ class SettingsViewController: UIViewController {
     }
     
     func configureViews() {
-        //
         configureCollectionView()
+        guard let startDate = SavedAlarms.general.startDate(mode),
+            let endDate = SavedAlarms.general.endDate(mode)
+        else { return }
+        
+        sections[.time] = [AlarmTime(startDate: startDate, endDate: endDate)]
     }
     
     func configureCollectionView() {

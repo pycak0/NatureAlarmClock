@@ -13,10 +13,18 @@ class AlarmsViewController: UIViewController {
     @IBOutlet weak var wakeupAlarmView: AlarmView!
     @IBOutlet weak var sleepAlarmView: AlarmView!
     
+    var sleepTime: AlarmTime?
+    var wakeUpTime: AlarmTime?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBarTitleView(delegate: nil)
         configureViews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateSavedTime()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -30,13 +38,30 @@ class AlarmsViewController: UIViewController {
         }
     }
     
+    private func updateSavedTime() {
+        sleepTime = SavedAlarms.general.alarmTime(.sleep)
+        wakeUpTime = SavedAlarms.general.alarmTime(.wakeUp)
+        
+        guard sleepTime != nil, wakeUpTime != nil else { return }
+        
+        let strSleepTime = sleepTime!.intervalRepresentation
+        let strWakeTime = wakeUpTime!.intervalRepresentation
+        wakeupAlarmView.time = strWakeTime
+        sleepAlarmView.time = strSleepTime
+    }
+        
     private func configureViews() {
-        wakeupAlarmView.mode = .wakeUp
         wakeupAlarmView.time = "7:30 - 8:00"
+        sleepAlarmView.time = "23:00 - 00:00"
+        updateSavedTime()
+        
+        wakeupAlarmView.mode = .wakeUp
         wakeupAlarmView.delegate = self
         sleepAlarmView.mode = .sleep
-        sleepAlarmView.time = "23:00 - 00:00"
         sleepAlarmView.delegate = self
+        
+        wakeupAlarmView.isSwitchedOn = false
+        sleepAlarmView.isSwitchedOn = false
     }
 
 }
@@ -48,12 +73,7 @@ extension AlarmsViewController: AlarmViewDelegate {
     }
     
     func alarmView(_ alarmView: AlarmView, didPressSwitchButton switchButton: UIButton) {
-        print("switch button pressed")
-        if switchButton.tintColor == .systemRed {
-            switchButton.imageView?.tintColor = .systemGreen
-        } else {
-            switchButton.imageView?.tintColor = .systemRed
-        }
+        alarmView.isSwitchedOn.toggle()
     }
     
 }

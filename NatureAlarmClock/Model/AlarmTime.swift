@@ -36,13 +36,13 @@ struct AlarmTime {
     }
     
     
-    init(from intervalRepresentation: String, intervalSep: String = " — ", timeSep: String = ":") {
+    init(from intervalRepresentation: String, intervalSep: String = " – ", timeSep: String = ":") {
         let parts = intervalRepresentation.components(separatedBy: intervalSep)
         self.init(start: parts.first!, end: parts.last!, separator: timeSep)
     }
     
     var intervalRepresentation: String {
-        return "\(start) — \(end)"
+        return "\(start.string) – \(end.string)"
     }
 
 }

@@ -25,6 +25,7 @@ class AlarmView: UIView {
     @IBOutlet private weak var settingsButton: UIButton!
     @IBOutlet private weak var messageLabel: UILabel!
     @IBOutlet private weak var timeLabel: UILabel!
+    @IBOutlet private weak var switchIndicatorView: UIView!
     
     //MARK:- Init
     override init(frame: CGRect) {
@@ -61,6 +62,16 @@ class AlarmView: UIView {
     var time: String! {
         didSet {
             timeLabel.text = time
+        }
+    }
+    
+    var isSwitchedOn: Bool = false {
+        didSet {
+            let alpha: CGFloat = isSwitchedOn ? 0.0 : 0.5
+            UIView.animate(withDuration: 0.2) {
+                self.switchIndicatorView.alpha = alpha
+            }
+            switchButton.tintColor = isSwitchedOn ? .systemGreen : .systemRed
         }
     }
     
