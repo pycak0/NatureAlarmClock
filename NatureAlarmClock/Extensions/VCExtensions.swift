@@ -25,13 +25,17 @@ extension UIViewController {
         }
         navBar.isTranslucent = true
         navBar.isOpaque = false
+        navBar.backIndicatorTransitionMaskImage = UIImage()
+        navBar.backIndicatorImage = UIImage()
         navBar.layoutIfNeeded()
     }
     
-    func setupNavBarTitleView(text: String? = nil, tintColor: UIColor = .systemGreen, customImage: UIImage? = nil) {
+    func setupNavBarTitleView(delegate: AlarmNavigationBarViewDelegate?, text: String? = nil, tintColor: UIColor = .systemGreen, customImage: UIImage? = nil) {
         clearNavigationBar(clearBorder: text == nil)
         
-        let titleView = AlarmNavigationBarView(title: text, image: customImage ?? UIImage(named: "alarm"))
+        let titleView = AlarmNavigationBarView(title: text, image: customImage ?? UIImage(named: "alarm"), tintColor: tintColor)
+        titleView.delegate = delegate
+        titleView.backButton.isHidden = titleView.delegate == nil
         view.addSubview(titleView)
         
         titleView.translatesAutoresizingMaskIntoConstraints = false
@@ -45,7 +49,7 @@ extension UIViewController {
     }
     
     func navBarHeight(_ isTitleEnabled: Bool) -> CGFloat {
-        return isTitleEnabled ? 120 : 100
+        return isTitleEnabled ? 140 : 110
 //        return 120
 //        switch UIScreen.main.nativeBounds.height {
 //        case 2436, 2688, 1792:

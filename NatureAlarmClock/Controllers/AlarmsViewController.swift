@@ -15,8 +15,7 @@ class AlarmsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavBarTitleView()
-        
+        setupNavBarTitleView(delegate: nil)
         configureViews()
     }
     
@@ -24,7 +23,7 @@ class AlarmsViewController: UIViewController {
         switch segue.identifier {
         case "SettingsScreen":
             guard let vc = segue.destination as? SettingsViewController,
-                let mode = sender as? AlarmView.AlarmMode else { return }
+                let mode = sender as? AlarmMode else { return }
             vc.mode = mode
         default:
             break

@@ -8,13 +8,20 @@
 
 import UIKit
 
+protocol AlarmNavigationBarViewDelegate: class {
+    func backButtonPressed()
+}
+
 class AlarmNavigationBarView: UIView {
     static let nibName = "AlarmNavigationBarView"
+    
+    weak var delegate: AlarmNavigationBarViewDelegate?
     
     @IBOutlet private var contentView: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
-
+    @IBOutlet weak var backButton: UIButton!
+    
     //MARK:- Init
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,12 +33,17 @@ class AlarmNavigationBarView: UIView {
         xibSetup()
     }
     
-    convenience init(title: String?, image: UIImage?, tintColor: UIColor = .systemGreen) {
+    convenience init(title: String?, image: UIImage?, tintColor: UIColor) {
         self.init()
         self.title = title
         titleLabel.text = title
+        titleLabel.textColor = tintColor
         imageView.image = image
         imageView.tintColor = tintColor
+    }
+    
+    @IBAction func backButtonPressed(_ sender: UIButton) {
+        delegate?.backButtonPressed()
     }
     
     var title: String? {

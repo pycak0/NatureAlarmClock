@@ -18,24 +18,6 @@ class AlarmView: UIView {
     
     weak var delegate: AlarmViewDelegate?
     
-    //MARK:- Alarm Mode
-    enum AlarmMode {
-        case sleep, wakeUp
-        
-        var image: UIImage? {
-            let imageName = self == .sleep ? "sleepImageBig.png" : "wakeupImageBig.png"
-            return UIImage(named: imageName)
-        }
-        
-        var message: String {
-            return self == .sleep ? "Я засыпаю" : "Я просыпаюсь"
-        }
-        
-        var color: UIColor {
-            return self == .sleep ? .blueSleep : .pinkWakeup
-        }
-    }
-    
     //MARK:- Properties
     @IBOutlet private var contentView: UIView!
     @IBOutlet private weak var imageView: UIImageView!

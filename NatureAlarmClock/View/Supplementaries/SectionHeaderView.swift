@@ -19,7 +19,7 @@ class SectionHeaderView: UICollectionReusableView {
     }
     
     func configure() {
-        let separator = UIView(frame: CGRect(x: 0, y: 0, width: bounds.width, height: 1))
+        let separator = UIView(frame: CGRect(x: 0, y: 3, width: bounds.width, height: 1))
         separator.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
         separator.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         addSubview(separator)

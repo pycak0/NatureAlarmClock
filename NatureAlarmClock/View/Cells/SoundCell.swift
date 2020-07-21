@@ -37,6 +37,8 @@ class SoundCell: UICollectionViewCell {
     }
     
     func configure(with sound: Sound) {
+        playButton.isUserInteractionEnabled = false
+        
         soundNameLabel.text = sound.soundName
         guard let url = sound.url else {
             return
