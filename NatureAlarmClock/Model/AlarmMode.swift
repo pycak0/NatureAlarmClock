@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum AlarmMode {
+enum AlarmMode: String {
     case sleep, wakeUp
     
     var image: UIImage? {

@@ -1,5 +1,5 @@
 //
-//  AppDelegate.swift
+//MARK:  AppDelegate.swift
 //  NatureAlarmClock
 //
 //  Created by Владислав on 20.07.2020.
@@ -8,14 +8,26 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    //MARK:- Did Finish Launching With Options
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        UNUserNotificationCenter.current().delegate = self
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(options: authOptions, completionHandler: { granted, error in
+            if !granted {
+                print("not granted")
+            }
+        })
+        
+        
+        
         return true
     }
 
@@ -82,3 +94,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+
+//MARK:- User Notifications Delegate
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        let id = response.notification.request.identifier
+        print("Received notification with ID = \(id)")
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+        }
+        
+        completionHandler()
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        let id = notification.request.identifier
+        print("Received notification with ID = \(id)")
+
+        completionHandler([.sound, .alert])
+    }
+}

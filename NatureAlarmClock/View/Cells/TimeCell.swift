@@ -9,7 +9,7 @@
 import UIKit
 
 protocol TimeCellDelegate: class {
-    func timeCell(_ timeCell: TimeCell, didChangeTimeValues startTime: String, endTime: String)
+    func timeCell(_ timeCell: TimeCell, didChangeTimeValues startDate: Date, endDate: Date)
 }
 
 class TimeCell: UICollectionViewCell {
@@ -75,6 +75,7 @@ class TimeCell: UICollectionViewCell {
         }
         
         SavedAlarms.general.saveDates(mode: mode, startDate: startPicker.date, endDate: endPicker.date)
+        delegate?.timeCell(self, didChangeTimeValues: startPicker.date, endDate: endPicker.date)
         
         contentView.endEditing(true)
         isDoneButtonPressed = false

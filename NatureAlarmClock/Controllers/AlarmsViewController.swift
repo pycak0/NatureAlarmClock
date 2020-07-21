@@ -60,8 +60,8 @@ class AlarmsViewController: UIViewController {
         sleepAlarmView.mode = .sleep
         sleepAlarmView.delegate = self
         
-        wakeupAlarmView.isSwitchedOn = false
-        sleepAlarmView.isSwitchedOn = false
+        wakeupAlarmView.isSwitchedOn = SavedAlarms.general.isWakeAlarmSwitchedOn
+        sleepAlarmView.isSwitchedOn = SavedAlarms.general.isSleepAlarmSwitchedOn
     }
 
 }
@@ -74,6 +74,9 @@ extension AlarmsViewController: AlarmViewDelegate {
     
     func alarmView(_ alarmView: AlarmView, didPressSwitchButton switchButton: UIButton) {
         alarmView.isSwitchedOn.toggle()
+        SavedAlarms.general.toggleAlarm(alarmView.mode)
+//        AlarmsManager.general.scheduleNotification(
+//            alarm: AlarmNotification(mode: alarmView.mode, title: alarmView.mode.message, soundFileName: <#T##String#>, startDate: <#T##DateComponents#>, endDate: <#T##DateComponents#>))
     }
     
 }

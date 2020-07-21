@@ -14,11 +14,12 @@ class SavedAlarms {
     
     static let general = SavedAlarms()
     
-    let defaults = UserDefaults.standard
+    private let defaults = UserDefaults.standard
     
     enum AlarmDateKeys: String {
         case sleepStart, sleepEnd, wakeupStart, wakeupEnd
         case isSleepAlarmSwitchedOn, isWakeAlarmSwitchedOn
+        case soundName
     }
     
     private var sleepStartDate: Date? {
@@ -72,6 +73,24 @@ class SavedAlarms {
         }
         set {
             defaults.set(newValue, forKey: AlarmDateKeys.isWakeAlarmSwitchedOn.rawValue)
+        }
+    }
+    
+    func isAlarmSwitchedOn(_ mode: AlarmMode) -> Bool {
+        switch mode {
+        case .sleep:
+            return isSleepAlarmSwitchedOn
+        case .wakeUp:
+            return isWakeAlarmSwitchedOn
+        }
+    }
+    
+    func toggleAlarm(_ mode: AlarmMode) {
+        switch mode {
+        case .sleep:
+            isSleepAlarmSwitchedOn.toggle()
+        case .wakeUp:
+            isWakeAlarmSwitchedOn.toggle()
         }
     }
     

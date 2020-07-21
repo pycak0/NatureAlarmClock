@@ -35,7 +35,7 @@ class SettingsViewController: UIViewController {
         .mainSound : [
             Sound(name: "Рассвет", file: "", withExtension: ""),
             Sound(name: "Прибой", file: "", withExtension: ""),
-            Sound(name: "Лес", file: "", withExtension: ""),
+            Sound(name: "Лес", file: "forestSound", withExtension: "m4r"),
             Sound(name: "Море", file: "", withExtension: ""),
             Sound(name: "Поле", file: "", withExtension: "")
         ],
@@ -72,4 +72,16 @@ extension SettingsViewController: AlarmNavigationBarViewDelegate {
     func backButtonPressed() {
         navigationController?.popViewController(animated: true)
     }
+}
+
+
+extension SettingsViewController: TimeCellDelegate {
+    func timeCell(_ timeCell: TimeCell, didChangeTimeValues startDate: Date, endDate: Date) {
+        let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: startDate)
+        let endComponents = Calendar.current.dateComponents([.hour, .minute], from: endDate)
+        AlarmsManager.general.scheduleNotification(
+            alarm: AlarmNotification(mode: mode, title: mode.message, soundFileName: "forestSound.m4r", startDate: dateComponents, endDate: endComponents)
+        )
+    }
+    
 }

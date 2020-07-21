@@ -30,6 +30,7 @@ extension SettingsViewController: UICollectionViewDataSource, UICollectionViewDe
             let timeCell = collectionView.dequeueReusableCell(withReuseIdentifier: TimeCell.reuseIdentifier, for: indexPath) as! TimeCell
             let time = sections[sectionKind]!.first as! AlarmTime
             timeCell.configure(with: time, mode: mode)
+            timeCell.delegate = self
             
             return timeCell
             
@@ -62,8 +63,6 @@ extension SettingsViewController: UICollectionViewDataSource, UICollectionViewDe
         guard let cell = collectionView.cellForItem(at: indexPath),
             Section(rawValue: indexPath.section)! != .time else { return }
         
-        cell.contentView.layer.borderWidth = 2
-        cell.contentView.layer.borderColor = mode.color.cgColor
     }
     
     func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
@@ -82,6 +81,8 @@ extension SettingsViewController: UICollectionViewDataSource, UICollectionViewDe
             break
         case .additionalSound, .mainSound:
             guard let cell = collectionView.cellForItem(at: indexPath) as? SoundCell else { return }
+            cell.contentView.layer.borderWidth = 2
+            cell.contentView.layer.borderColor = mode.color.cgColor
             cell.isPlaying ? cell.pause() : cell.play()
         }
     }

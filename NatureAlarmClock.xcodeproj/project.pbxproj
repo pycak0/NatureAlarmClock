@@ -35,10 +35,14 @@
 		A4B479B724C5E3A200944FA0 /* launchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = A4B479B624C5E3A100944FA0 /* launchScreen.png */; };
 		A4B479B924C5E43C00944FA0 /* alarmBig.png in Resources */ = {isa = PBXBuildFile; fileRef = A4B479B824C5E43C00944FA0 /* alarmBig.png */; };
 		A4B479BB24C5E8EB00944FA0 /* SettingsVCCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B479BA24C5E8EB00944FA0 /* SettingsVCCollectionView.swift */; };
+		A4C79CE324C6FF260085A328 /* AlarmsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C79CE224C6FF260085A328 /* AlarmsManager.swift */; };
+		A4C79CE524C6FF8A0085A328 /* AlarmNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C79CE424C6FF8A0085A328 /* AlarmNotification.swift */; };
+		A4C79CE724C70D850085A328 /* forestSound.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A4C79CE624C70D850085A328 /* forestSound.m4r */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A4685D9424C6D7B100C9930C /* SavedAlarms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedAlarms.swift; sourceTree = "<group>"; };
+		A4685D9624C6FA6200C9930C /* NatureAlarmClock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NatureAlarmClock.entitlements; sourceTree = "<group>"; };
 		A4782E9124C580D4002CA812 /* NatureAlarmClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NatureAlarmClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4782E9424C580D4002CA812 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4782E9624C580D4002CA812 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +72,9 @@
 		A4B479B624C5E3A100944FA0 /* launchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchScreen.png; sourceTree = "<group>"; };
 		A4B479B824C5E43C00944FA0 /* alarmBig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alarmBig.png; sourceTree = "<group>"; };
 		A4B479BA24C5E8EB00944FA0 /* SettingsVCCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVCCollectionView.swift; sourceTree = "<group>"; };
+		A4C79CE224C6FF260085A328 /* AlarmsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmsManager.swift; sourceTree = "<group>"; };
+		A4C79CE424C6FF8A0085A328 /* AlarmNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmNotification.swift; sourceTree = "<group>"; };
+		A4C79CE624C70D850085A328 /* forestSound.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = forestSound.m4r; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +107,8 @@
 		A4782E9324C580D4002CA812 /* NatureAlarmClock */ = {
 			isa = PBXGroup;
 			children = (
+				A4C79CE124C6FF180085A328 /* Managers */,
+				A4685D9624C6FA6200C9930C /* NatureAlarmClock.entitlements */,
 				A4782EAE24C58120002CA812 /* Model */,
 				A4782EAC24C58100002CA812 /* View */,
 				A4782EAF24C5812D002CA812 /* Controllers */,
@@ -150,6 +159,7 @@
 				A484611624C5FC1F00376A27 /* AlarmMode.swift */,
 				A484611A24C6296700376A27 /* ClockTime.swift */,
 				A4685D9424C6D7B100C9930C /* SavedAlarms.swift */,
+				A4C79CE424C6FF8A0085A328 /* AlarmNotification.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -188,6 +198,7 @@
 		A4782EB624C58670002CA812 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				A4C79CE624C70D850085A328 /* forestSound.m4r */,
 				A4782EB724C58687002CA812 /* wakeupImageBig.png */,
 				A4B479B824C5E43C00944FA0 /* alarmBig.png */,
 				A4B479B624C5E3A100944FA0 /* launchScreen.png */,
@@ -211,6 +222,14 @@
 				A4B479B424C5CE3000944FA0 /* SectionHeaderView.swift */,
 			);
 			path = Supplementaries;
+			sourceTree = "<group>";
+		};
+		A4C79CE124C6FF180085A328 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				A4C79CE224C6FF260085A328 /* AlarmsManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,6 +292,7 @@
 			files = (
 				A4B479AB24C5AC1F00944FA0 /* AlarmNavigationBarView.xib in Resources */,
 				A4782EB824C58687002CA812 /* wakeupImageBig.png in Resources */,
+				A4C79CE724C70D850085A328 /* forestSound.m4r in Resources */,
 				A4782EBA24C58946002CA812 /* sleepImageBig.png in Resources */,
 				A4782EA424C580D6002CA812 /* LaunchScreen.storyboard in Resources */,
 				A4782EA124C580D6002CA812 /* Assets.xcassets in Resources */,
@@ -299,11 +319,13 @@
 				A484611B24C6296700376A27 /* ClockTime.swift in Sources */,
 				A4782E9524C580D4002CA812 /* AppDelegate.swift in Sources */,
 				A484611524C5F7AE00376A27 /* AlarmTime.swift in Sources */,
+				A4C79CE324C6FF260085A328 /* AlarmsManager.swift in Sources */,
 				A4B479B024C5C4C800944FA0 /* SoundCell.swift in Sources */,
 				A4B479A724C5A2F200944FA0 /* Colors.swift in Sources */,
 				A4782EBC24C58D75002CA812 /* AlarmView.swift in Sources */,
 				A484611324C5F41E00376A27 /* TimeCell.swift in Sources */,
 				A4B479B524C5CE3000944FA0 /* SectionHeaderView.swift in Sources */,
+				A4C79CE524C6FF8A0085A328 /* AlarmNotification.swift in Sources */,
 				A4B479A924C5ABEC00944FA0 /* AlarmNavigationBarView.swift in Sources */,
 				A484611724C5FC1F00376A27 /* AlarmMode.swift in Sources */,
 				A4782EB324C582DD002CA812 /* VCExtensions.swift in Sources */,
@@ -452,6 +474,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NatureAlarmClock/NatureAlarmClock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N8U99CLXJ5;
 				INFOPLIST_FILE = NatureAlarmClock/Info.plist;
@@ -463,7 +486,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pycak.NatureAlarmClock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -471,6 +494,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NatureAlarmClock/NatureAlarmClock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N8U99CLXJ5;
 				INFOPLIST_FILE = NatureAlarmClock/Info.plist;
@@ -482,7 +506,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pycak.NatureAlarmClock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
