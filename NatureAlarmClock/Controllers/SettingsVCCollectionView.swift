@@ -38,6 +38,10 @@ extension SettingsViewController: UICollectionViewDataSource, UICollectionViewDe
             let soundCell = collectionView.dequeueReusableCell(withReuseIdentifier: SoundCell.reuseIdentifier, for: indexPath) as! SoundCell
             let sound = sections[sectionKind]![indexPath.row] as! Sound
             soundCell.configure(with: sound)
+            soundCell.delegate = self
+            if sound.fileNamePlusExtension == Globals.alarm(mode).soundFileName {
+                soundCell.setSelected(mode)
+            }
             
             return soundCell
         }
@@ -58,33 +62,38 @@ extension SettingsViewController: UICollectionViewDataSource, UICollectionViewDe
     
     //MARK:- Delegate
     
-    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-      //  print("did highlight item at indexPath \(indexPath)")
-        guard let cell = collectionView.cellForItem(at: indexPath),
-            Section(rawValue: indexPath.section)! != .time else { return }
-        
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) else { return }
-        cell.contentView.layer.borderWidth = 0
-    }
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     //    print("did select item at indexPath \(indexPath)")
         guard let sectionKind = Section(rawValue: indexPath.section) else {
             fatalError("Invalid section kind")
         }
         
+        hapticsGenerator.impactOccurred()
         switch sectionKind {
         case .time:
             break
-        case .additionalSound, .mainSound:
-            guard let cell = collectionView.cellForItem(at: indexPath) as? SoundCell else { return }
-            cell.contentView.layer.borderWidth = 2
-            cell.contentView.layer.borderColor = mode.color.cgColor
-            cell.isPlaying ? cell.pause() : cell.play()
+        case .additionalSound:
+            guard let cell = collectionView.cellForItem(at: indexPath) as? SoundCell,
+                let sound = sections[sectionKind]?[indexPath.row] as? Sound else { return }
+            deselectItems(in: collectionView, at: sectionKind)
+            cell.setSelected(mode)
+            
+//            Globals.alarm(mode).soundFileName = sound.fileName
+//            schdeuleCurrentNotification(mode)
+//            cell.isPlaying ? cell.pause() : cell.play()
+        case .mainSound:
+            guard let cell = collectionView.cellForItem(at: indexPath) as? SoundCell,
+                let sound = sections[sectionKind]?[indexPath.row] as? Sound else { return }
+            deselectItems(in: collectionView, at: sectionKind)
+            cell.setSelected(mode)
+            
+            Globals.alarm(mode).soundFileName = sound.fileNamePlusExtension
+            schdeuleCurrentNotification(mode)
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        return indexPath.section != 0
     }
 }
 
@@ -111,5 +120,29 @@ extension SettingsViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
+    }
+}
+
+
+extension SettingsViewController {
+    func deselectItems(in collectionView: UICollectionView, at section: Section) {
+        collectionView.indexPathsForVisibleItems.forEach { (indexPath) in
+            if Section(rawValue: indexPath.section) == section  {
+                collectionView.deselectItem(at: indexPath, animated: true)
+                if let cell = collectionView.cellForItem(at: indexPath) as? SoundCell {
+                    cell.deselect()
+                }
+            }
+        }
+    }
+    
+    func pausePlayers(in collectionView: UICollectionView, at section: Section) {
+        collectionView.indexPathsForVisibleItems.forEach { (indexPath) in
+            if Section(rawValue: indexPath.section) == section  {
+                if let cell = collectionView.cellForItem(at: indexPath) as? SoundCell {
+                    cell.pause()
+                }
+            }
+        }
     }
 }

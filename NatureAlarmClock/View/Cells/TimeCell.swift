@@ -25,6 +25,8 @@ class TimeCell: UICollectionViewCell {
     var mode: AlarmMode!
     var isDoneButtonPressed = false
     
+    let hapticsGenerator = UIImpactFeedbackGenerator()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         configureViews()
@@ -74,7 +76,6 @@ class TimeCell: UICollectionViewCell {
             })
         }
         
-        SavedAlarms.general.saveDates(mode: mode, startDate: startPicker.date, endDate: endPicker.date)
         delegate?.timeCell(self, didChangeTimeValues: startPicker.date, endDate: endPicker.date)
         
         contentView.endEditing(true)
@@ -111,6 +112,10 @@ class TimeCell: UICollectionViewCell {
 
 
 extension TimeCell: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        hapticsGenerator.impactOccurred()
+    }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         //print("did end editing")
         guard !isDoneButtonPressed else {

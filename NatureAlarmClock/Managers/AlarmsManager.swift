@@ -18,10 +18,12 @@ class AlarmsManager {
     // var alarms = [AlarmNotification]()
     
     func scheduleNotification(alarm: AlarmNotification) {
-        guard SavedAlarms.general.isAlarmSwitchedOn(alarm.mode) else {
+        guard Globals.alarm(alarm.mode).isSwitchedOn else {
             print("Alarm mode '\(alarm.mode)' is switched off")
             return
         }
+        
+        print("Setting Notification with sound: \(alarm.soundFileName)")
         
         let content = UNMutableNotificationContent()
         content.title = alarm.title
@@ -49,6 +51,11 @@ class AlarmsManager {
         }
         
        // UNUserNotificationCenter.current().add(newRequest, withCompletionHandler: nil)
+    }
+    
+    
+    func cancelNotitfication(_ mode: AlarmMode) {
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [mode.rawValue])
     }
     
 }

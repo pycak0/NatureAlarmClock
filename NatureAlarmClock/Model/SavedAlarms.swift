@@ -16,125 +16,57 @@ class SavedAlarms {
     
     private let defaults = UserDefaults.standard
     
-    enum AlarmDateKeys: String {
-        case sleepStart, sleepEnd, wakeupStart, wakeupEnd
-        case isSleepAlarmSwitchedOn, isWakeAlarmSwitchedOn
-        case soundName
+    enum AlarmKeys: String {
+        case startDate, endDate, soundName, switchedOn
     }
     
-    private var sleepStartDate: Date? {
-        get {
-            defaults.value(forKey: AlarmDateKeys.sleepStart.rawValue) as? Date
-        }
-        set {
-            defaults.set(newValue, forKey: AlarmDateKeys.sleepStart.rawValue)
-        }
-    }
-    
-    private var sleepEndDate: Date? {
-        get {
-            defaults.value(forKey: AlarmDateKeys.sleepEnd.rawValue) as? Date
-        }
-        set {
-            defaults.set(newValue, forKey: AlarmDateKeys.sleepEnd.rawValue)
+    struct SavedAlarm {
+        var startDate: Date
+        var endDate: Date
+        var soundName: String
+        var isSwitchedOn: Bool
+        
+        init(_ dictionary: [String: Any]) {
+            self.startDate = dictionary[AlarmKeys.startDate.rawValue] as? Date ?? Date()
+            self.endDate = dictionary[AlarmKeys.endDate.rawValue] as? Date ?? Date()
+            self.soundName = dictionary[AlarmKeys.soundName.rawValue] as? String ?? "forestSound.m4r"
+            self.isSwitchedOn = dictionary[AlarmKeys.switchedOn.rawValue] as? Bool ?? false
         }
     }
     
-    private var wakeupStartDate: Date? {
-        get {
-            defaults.value(forKey: AlarmDateKeys.wakeupStart.rawValue) as? Date
-        }
-        set {
-            defaults.set(newValue, forKey: AlarmDateKeys.wakeupStart.rawValue)
-        }
+    func getAlarm(_ mode: AlarmMode) -> SavedAlarm {
+        let dict = defaults.value(forKey: mode.rawValue) as? [String : Any] ?? [:]
+        return SavedAlarm(dict)
     }
     
-    private var wakeupEndDate: Date? {
-        get {
-            defaults.value(forKey: AlarmDateKeys.wakeupEnd.rawValue) as? Date
-        }
-        set {
-            defaults.set(newValue, forKey: AlarmDateKeys.wakeupEnd.rawValue)
-        }
+    func saveAlarm(_ mode: AlarmMode, alarm: SavedAlarm) {
+        let dict: [String: Any] = [
+            AlarmKeys.startDate.rawValue : alarm.startDate,
+            AlarmKeys.endDate.rawValue : alarm.endDate,
+            AlarmKeys.soundName.rawValue : alarm.soundName
+        ]
+        defaults.set(dict, forKey: mode.rawValue)
     }
     
-    var isSleepAlarmSwitchedOn: Bool {
-        get {
-            defaults.bool(forKey: AlarmDateKeys.isSleepAlarmSwitchedOn.rawValue)
-        }
-        set {
-            defaults.set(newValue, forKey: AlarmDateKeys.isSleepAlarmSwitchedOn.rawValue)
-        }
+    func saveAlarm(_ mode: AlarmMode, currentAlarm: CurrentAlarm) {
+        let dict: [String: Any] = [
+            AlarmKeys.startDate.rawValue : currentAlarm.alarmTime.start.date,
+            AlarmKeys.endDate.rawValue : currentAlarm.alarmTime.end.date,
+            AlarmKeys.soundName.rawValue : currentAlarm.soundFileName,
+            AlarmKeys.switchedOn.rawValue : currentAlarm.isSwitchedOn
+        ]
+        defaults.set(dict, forKey: mode.rawValue)
+        print("Current alarm is saved")
     }
     
-    var isWakeAlarmSwitchedOn: Bool {
-        get {
-            defaults.bool(forKey: AlarmDateKeys.isWakeAlarmSwitchedOn.rawValue)
-        }
-        set {
-            defaults.set(newValue, forKey: AlarmDateKeys.isWakeAlarmSwitchedOn.rawValue)
-        }
+    func saveAlarm(_ mode: AlarmMode, startDate: Date, endDate: Date, soundName: String, isSwitchedOn: Bool) {
+        let dict: [String: Any] = [
+            AlarmKeys.startDate.rawValue : startDate,
+            AlarmKeys.endDate.rawValue : endDate,
+            AlarmKeys.soundName.rawValue : soundName,
+            AlarmKeys.switchedOn.rawValue : isSwitchedOn
+        ]
+        defaults.set(dict, forKey: mode.rawValue)
     }
     
-    func isAlarmSwitchedOn(_ mode: AlarmMode) -> Bool {
-        switch mode {
-        case .sleep:
-            return isSleepAlarmSwitchedOn
-        case .wakeUp:
-            return isWakeAlarmSwitchedOn
-        }
-    }
-    
-    func toggleAlarm(_ mode: AlarmMode) {
-        switch mode {
-        case .sleep:
-            isSleepAlarmSwitchedOn.toggle()
-        case .wakeUp:
-            isWakeAlarmSwitchedOn.toggle()
-        }
-    }
-    
-    //MARK:- Save Dates 
-    func saveDates(mode: AlarmMode, startDate: Date, endDate: Date) {
-        switch mode {
-        case .sleep:
-            sleepStartDate = startDate
-            sleepEndDate = endDate
-        case .wakeUp:
-            wakeupStartDate = startDate
-            wakeupEndDate = endDate
-        }
-    }
-    
-    func startDate(_ mode: AlarmMode) -> Date? {
-        switch mode {
-        case .sleep:
-            return sleepStartDate
-        case .wakeUp:
-            return wakeupStartDate
-        }
-    }
-    
-    func endDate(_ mode: AlarmMode) -> Date? {
-        switch mode {
-        case .sleep:
-            return sleepEndDate
-        case .wakeUp:
-            return wakeupEndDate
-        }
-    }
-    
-    func alarmTime(_ mode: AlarmMode) -> AlarmTime? {
-        switch mode {
-        case .sleep:
-            if let start = sleepStartDate, let end = sleepEndDate {
-                return AlarmTime(startDate: start, endDate: end)
-            }
-        case .wakeUp:
-            if let start = wakeupStartDate, let end = wakeupEndDate {
-                return AlarmTime(startDate: start, endDate: end)
-            }
-        }
-        return nil
-    }
 }

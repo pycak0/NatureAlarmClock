@@ -37,4 +37,20 @@ struct ClockTime {
     var string: String {
         return String(format: "%02d:%02d", hour, minute)
     }
+    
+    var date: Date {
+        var components = DateComponents()
+        components.timeZone = .current
+        components.hour = hour
+        components.minute = minute
+        return Calendar.current.date(from: components)!
+    }
+    
+    var dateComponents: DateComponents {
+        var components = DateComponents()
+        components.timeZone = .current
+        components.hour = hour
+        components.minute = minute
+        return components
+    }
 }

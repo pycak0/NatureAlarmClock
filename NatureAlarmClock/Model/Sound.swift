@@ -19,6 +19,10 @@ struct Sound {
         self.fileType = ext
     }
     
+    var fileNamePlusExtension: String {
+        return "\(fileName).\(fileType)"
+    }
+    
     var url: URL? {
         return Bundle.main.url(forResource: fileName, withExtension: fileType)
     }

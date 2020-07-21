@@ -16,6 +16,8 @@ class AlarmsViewController: UIViewController {
     var sleepTime: AlarmTime?
     var wakeUpTime: AlarmTime?
     
+    let hapticsGenerator = UIImpactFeedbackGenerator()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBarTitleView(delegate: nil)
@@ -39,29 +41,19 @@ class AlarmsViewController: UIViewController {
     }
     
     private func updateSavedTime() {
-        sleepTime = SavedAlarms.general.alarmTime(.sleep)
-        wakeUpTime = SavedAlarms.general.alarmTime(.wakeUp)
-        
-        guard sleepTime != nil, wakeUpTime != nil else { return }
-        
-        let strSleepTime = sleepTime!.intervalRepresentation
-        let strWakeTime = wakeUpTime!.intervalRepresentation
-        wakeupAlarmView.time = strWakeTime
-        sleepAlarmView.time = strSleepTime
+        wakeupAlarmView.time = Globals.alarm(.wakeUp).alarmTime.intervalRepresentation
+        sleepAlarmView.time = Globals.alarm(.sleep).alarmTime.intervalRepresentation
     }
-        
+    
     private func configureViews() {
-        wakeupAlarmView.time = "7:30 - 8:00"
-        sleepAlarmView.time = "23:00 - 00:00"
-        updateSavedTime()
-        
         wakeupAlarmView.mode = .wakeUp
         wakeupAlarmView.delegate = self
+        wakeupAlarmView.isSwitchedOn = Globals.alarm(.wakeUp).isSwitchedOn
         sleepAlarmView.mode = .sleep
         sleepAlarmView.delegate = self
+        sleepAlarmView.isSwitchedOn = Globals.alarm(.sleep).isSwitchedOn
         
-        wakeupAlarmView.isSwitchedOn = SavedAlarms.general.isWakeAlarmSwitchedOn
-        sleepAlarmView.isSwitchedOn = SavedAlarms.general.isSleepAlarmSwitchedOn
+        updateSavedTime()
     }
 
 }
@@ -70,13 +62,29 @@ extension AlarmsViewController: AlarmViewDelegate {
     
     func alarmView(_ alarmView: AlarmView, didPressSettingsButton settingsButton: UIButton) {
         performSegue(withIdentifier: "SettingsScreen", sender: alarmView.mode)
+        //hapticsGenerator.impactOccurred()
     }
     
     func alarmView(_ alarmView: AlarmView, didPressSwitchButton switchButton: UIButton) {
+        hapticsGenerator.impactOccurred()
+        
+        Globals.alarm(alarmView.mode).isSwitchedOn.toggle()
         alarmView.isSwitchedOn.toggle()
-        SavedAlarms.general.toggleAlarm(alarmView.mode)
-//        AlarmsManager.general.scheduleNotification(
-//            alarm: AlarmNotification(mode: alarmView.mode, title: alarmView.mode.message, soundFileName: <#T##String#>, startDate: <#T##DateComponents#>, endDate: <#T##DateComponents#>))
+        SavedAlarms.general.saveAlarm(alarmView.mode, currentAlarm: Globals.alarm(alarmView.mode))
+        
+        if Globals.alarm(alarmView.mode).isSwitchedOn {
+            
+            let startDate = Globals.alarm(alarmView.mode).alarmTime.start.dateComponents
+            let endDate = Globals.alarm(alarmView.mode).alarmTime.end.dateComponents
+            
+            AlarmsManager.general.scheduleNotification(alarm:
+                AlarmNotification(mode: alarmView.mode, title: alarmView.mode.message,
+                                  soundFileName: Globals.alarm(alarmView.mode).soundFileName,
+                                  startDate: startDate, endDate: endDate))
+            
+        } else {
+            AlarmsManager.general.cancelNotitfication(alarmView.mode)
+        }
     }
     
 }

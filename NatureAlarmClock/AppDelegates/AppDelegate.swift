@@ -26,9 +26,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         })
         
-        
+        let savedSleepAlarm = SavedAlarms.general.getAlarm(.sleep)
+        let savedWakeAlarm = SavedAlarms.general.getAlarm(.wakeUp)
+        print(savedWakeAlarm)
+        Globals.sleepAlarm = CurrentAlarm(savedSleepAlarm)
+        Globals.wakeUpAlarm = CurrentAlarm(savedWakeAlarm)
+//
+//        Globals.alarms[.sleep] = CurrentAlarm(savedSleepAlarm)
+//        Globals.alarms[.wakeUp] = CurrentAlarm(savedWakeAlarm)
         
         return true
+    }
+        
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        print("Application did enter background. Saving Alarms Data...")
+        SavedAlarms.general.saveAlarm(.sleep, alarm: Globals.alarm(.sleep).savedAlarm)
+        SavedAlarms.general.saveAlarm(.wakeUp, alarm: Globals.alarm(.wakeUp).savedAlarm)
+    }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        print("App will terminate. Saving Alarms Data")
+        SavedAlarms.general.saveAlarm(.sleep, alarm: Globals.alarm(.sleep).savedAlarm)
+        SavedAlarms.general.saveAlarm(.wakeUp, alarm: Globals.alarm(.wakeUp).savedAlarm)
     }
 
     // MARK: UISceneSession Lifecycle
