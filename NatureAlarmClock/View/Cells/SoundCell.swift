@@ -1,5 +1,5 @@
 //
-//  SoundCell.swift
+//MARK:  SoundCell.swift
 //  NatureAlarmClock
 //
 //  Created by Владислав on 20.07.2020.
@@ -62,7 +62,8 @@ class SoundCell: UICollectionViewCell {
     
     func play() {
         do {
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, policy: .longFormAudio, options: [])
+            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
         }
         catch(let error) {
             delegate?.soundCell(self, didReceiveAudioPlaybackError: error)
@@ -70,6 +71,7 @@ class SoundCell: UICollectionViewCell {
         guard player != nil else {
             return
         }
+        
         playButton.setImage(UIImage(named: "Pause"), for: .normal)
         player?.play()
     }
@@ -90,4 +92,5 @@ class SoundCell: UICollectionViewCell {
         contentView.layer.borderWidth = 0
         isSelected = false
     }
+    
 }

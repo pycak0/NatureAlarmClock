@@ -145,4 +145,12 @@ extension SettingsViewController {
             }
         }
     }
+    
+    func pauseAllPlayers() {
+        settingsCollectionView.visibleCells.forEach {
+            if let cell = $0 as? SoundCell {
+                cell.pause()
+            }
+        }
+    }
 }

@@ -37,4 +37,6 @@ class Globals {
         }
     }
     
+   // static var player: AVAudioPlayer?
+    
 }

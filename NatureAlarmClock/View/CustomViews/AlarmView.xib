@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AlarmView" customModule="NatureAlarmClock" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AlarmView" customModule="Будильник_со_звуками_природы" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="Vmx-kX-Wfs"/>
                 <outlet property="imageView" destination="MOa-ey-OkV" id="2dh-Na-zMm"/>
@@ -23,7 +23,7 @@
             <rect key="frame" x="0.0" y="0.0" width="359" height="236"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wakeupImageBig.png" translatesAutoresizingMaskIntoConstraints="NO" id="MOa-ey-OkV">
+                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wakeupImageBig.png" translatesAutoresizingMaskIntoConstraints="NO" id="MOa-ey-OkV">
                     <rect key="frame" x="61.5" y="0.0" width="236" height="236"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="MOa-ey-OkV" secondAttribute="height" multiplier="1:1" id="5xa-Yf-bQY"/>
@@ -45,7 +45,7 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ovB-f4-K2N">
+                <view userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ovB-f4-K2N">
                     <rect key="frame" x="0.0" y="0.0" width="359" height="236"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

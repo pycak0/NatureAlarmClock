@@ -61,7 +61,7 @@ class TimeCell: UICollectionViewCell {
         //print(endTimeField.text, "haha")
         
         if startString >= endString {
-            let newDate = startPicker.date.addingTimeInterval(10 * .secondsIn(.minute))
+            let newDate = startPicker.date.addingTimeInterval(5 * .secondsIn(.minute))
             endPicker.date = newDate
 
             UIView.animate(withDuration: 0.2, delay: 0.2, options: [], animations: {

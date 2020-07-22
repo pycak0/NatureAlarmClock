@@ -83,7 +83,7 @@ extension AlarmsViewController: AlarmViewDelegate {
                                   startDate: startDate, endDate: endDate))
             
         } else {
-            AlarmsManager.general.cancelNotitfication(alarmView.mode)
+            AlarmsManager.general.cancelPendingNotifications(alarmView.mode)
         }
     }
     

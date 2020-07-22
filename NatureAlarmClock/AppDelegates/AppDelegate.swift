@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(savedWakeAlarm)
         Globals.sleepAlarm = CurrentAlarm(savedSleepAlarm)
         Globals.wakeUpAlarm = CurrentAlarm(savedWakeAlarm)
-//
+        
 //        Globals.alarms[.sleep] = CurrentAlarm(savedSleepAlarm)
 //        Globals.alarms[.wakeUp] = CurrentAlarm(savedWakeAlarm)
         
@@ -121,9 +121,8 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         let id = response.notification.request.identifier
         print("Received notification with ID = \(id)")
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            UNUserNotificationCenter.current().removeAllDeliveredNotifications()
-        }
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
         
         completionHandler()
     }
@@ -131,6 +130,8 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         let id = notification.request.identifier
         print("Received notification with ID = \(id)")
+        
+        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
 
         completionHandler([.sound, .alert])
     }

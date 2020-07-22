@@ -67,7 +67,7 @@ class AlarmView: UIView {
     
     var isSwitchedOn: Bool = false {
         didSet {
-            let alpha: CGFloat = isSwitchedOn ? 0.0 : 0.5
+            let alpha: CGFloat = isSwitchedOn ? 0.01 : 0.5
             UIView.animate(withDuration: 0.2) {
                 self.switchIndicatorView.alpha = alpha
             }
@@ -91,7 +91,14 @@ private extension AlarmView {
         imageView.image = mode.image
         messageLabel.text = mode.message
         timeLabel.backgroundColor = mode.color
+        addTapGestureRecognizer()
         
         timeLabel.layer.cornerRadius = timeLabel.frame.height / 2
+    }
+    
+    func addTapGestureRecognizer() {
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(settingsButtonPressed(_:)))
+        imageView.addGestureRecognizer(tapRecognizer)
+        //timeLabel.addGestureRecognizer(tapRecognizer)
     }
 }
