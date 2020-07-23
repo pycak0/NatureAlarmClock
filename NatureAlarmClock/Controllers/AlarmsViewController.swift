@@ -17,9 +17,13 @@ class AlarmsViewController: UIViewController {
     
     var sleepTime: AlarmTime?
     var wakeUpTime: AlarmTime?
-    
+    var player: AVAudioPlayer?
+    var timer: Timer? = nil
+
     let hapticsGenerator = UIImpactFeedbackGenerator()
+
     
+    //MARK:- Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         checkNotificationSettings()
@@ -38,6 +42,7 @@ class AlarmsViewController: UIViewController {
         case "SettingsScreen":
             guard let vc = segue.destination as? SettingsViewController,
                 let mode = sender as? AlarmMode else { return }
+            stopPlayer()
             vc.mode = mode
         default:
             break
@@ -46,9 +51,10 @@ class AlarmsViewController: UIViewController {
     
     private func updateSavedTime() {
         wakeupAlarmView.time = Globals.alarm(.wakeUp).alarmTime.intervalRepresentation
-        sleepAlarmView.time = Globals.alarm(.sleep).alarmTime.intervalRepresentation
+        sleepAlarmView.time = Globals.alarm(.sleep).alarmTime.start.fullString
     }
     
+    //MARK:- Configure Views
     private func configureViews() {
         wakeupAlarmView.mode = .wakeUp
         wakeupAlarmView.delegate = self
@@ -56,6 +62,7 @@ class AlarmsViewController: UIViewController {
         sleepAlarmView.mode = .sleep
         sleepAlarmView.delegate = self
         sleepAlarmView.isSwitchedOn = Globals.alarm(.sleep).isSwitchedOn
+       // sleepAlarmView.setSwitchButtonImage(UIImage(named: "Play"))
         
         updateSavedTime()
     }
@@ -72,9 +79,34 @@ class AlarmsViewController: UIViewController {
             }
         }
     }
+    
+    //MARK:- Schedule Alarm
+    private func manageAlarm(_ mode: AlarmMode) {
+        guard Globals.alarm(mode).isSwitchedOn else {
+            AlarmsManager.general.cancelPendingNotifications(mode)
+            self.stopPlayer()
+            return
+        }
+        
+        if mode == .sleep {
+            startPlayer(mode)
+        } else {
+            //MARK:- ‼️Scheduling for wake up only
+            let startDate = Globals.alarm(mode).alarmTime.start.dateComponents
+            let endDate = Globals.alarm(mode).alarmTime.end.dateComponents
+            let soundName = Globals.alarm(mode).mixedSoundFileName ?? Globals.alarm(mode).mainSoundFileName
+            
+            AlarmsManager.general.scheduleNotification(alarm:
+                AlarmNotification(mode: mode, title: mode.message,
+                                  soundFileName: soundName,
+                                  startDate: startDate, endDate: endDate))
+        }
+        
+    }
 
 }
 
+//MARK:- AlarmView Delegate
 extension AlarmsViewController: AlarmViewDelegate {
     
     func alarmView(_ alarmView: AlarmView, didPressSettingsButton settingsButton: UIButton) {
@@ -88,28 +120,12 @@ extension AlarmsViewController: AlarmViewDelegate {
         Globals.alarm(alarmView.mode).isSwitchedOn.toggle()
         alarmView.isSwitchedOn.toggle()
         SavedAlarms.general.saveAlarm(alarmView.mode, currentAlarm: Globals.alarm(alarmView.mode))
-        
-        let mode = alarmView.mode!
-        
-        if Globals.alarm(mode).isSwitchedOn {
-            
-            let startDate = Globals.alarm(mode).alarmTime.start.dateComponents
-            let endDate = Globals.alarm(mode).alarmTime.end.dateComponents
-            let soundName = Globals.alarm(mode).mixedSound ?? Globals.alarm(mode).mainSoundFileName
-            
-            AlarmsManager.general.scheduleNotification(alarm:
-                AlarmNotification(mode: mode, title: mode.message,
-                                  soundFileName: soundName,
-                                  startDate: startDate, endDate: endDate))
-            
-        } else {
-            AlarmsManager.general.cancelPendingNotifications(mode)
-        }
+        manageAlarm(alarmView.mode)
     }
     
 }
 
-
+//MARK:- AudioHelper Delegate
 extension AlarmsViewController: AudioHelperDelegate {
     func audioHelper(didFinishExportSession exportSession: AVAssetExportSession, with error: ExportError?, or url: URL?) {
         print(url ?? "no url")

@@ -13,10 +13,10 @@ class SettingsViewController: UIViewController {
     enum Section: Int, CaseIterable {
         case time, mainSound, additionalSound
         
-        var title: String {
+        func title(_ mode: AlarmMode) -> String {
             switch self {
             case .time:
-                return "Начало и конец мелодии"
+                return mode == .wakeUp ? "Начало и конец мелодии" : "Длительность мелодии"
             case .mainSound:
                 return "Основная мелодия"
             case .additionalSound:
@@ -26,7 +26,7 @@ class SettingsViewController: UIViewController {
     }
 
     @IBOutlet weak var settingsCollectionView: UICollectionView!
-    var mode: AlarmMode!
+    var mode: AlarmMode = .sleep
     let hapticsGenerator = UIImpactFeedbackGenerator(style: .light)
     
     var pickedMainSound: Sound!
@@ -94,10 +94,14 @@ class SettingsViewController: UIViewController {
     }
     
     func schdeuleCurrentNotification(_ mode: AlarmMode) {
+        //MARK:- ‼️Scheduling for wake up only
+        guard mode == .wakeUp else {
+            return
+        }
         let startDate = Globals.alarm(mode).alarmTime.start.dateComponents
         let endDate = Globals.alarm(mode).alarmTime.end.dateComponents
         
-        let soundName = Globals.alarm(mode).mixedSound ?? Globals.alarm(mode).mainSoundFileName
+        let soundName = Globals.alarm(mode).mixedSoundFileName ?? Globals.alarm(mode).mainSoundFileName
         
         AlarmsManager.general.scheduleNotification(
             alarm: AlarmNotification(mode: mode, title: mode.message, soundFileName: soundName, startDate: startDate, endDate: endDate)
@@ -105,15 +109,25 @@ class SettingsViewController: UIViewController {
     }
 }
 
-//MARK:- Time Cell Delegate
-extension SettingsViewController: TimeCellDelegate {
-    func timeCell(_ timeCell: TimeCell, didChangeTimeValues startDate: Date, endDate: Date) {
+//MARK:- Time Cells Delegate
+extension SettingsViewController: TimeRangeCellDelegate {
+    func timeCell(_ timeCell: TimeRangeCell, didChangeTimeValues startDate: Date, endDate: Date) {
         Globals.alarms[mode]?.alarmTime = AlarmTime(startDate: startDate, endDate: endDate)
+        SavedAlarms.general.saveAlarm(mode, currentAlarm: Globals.alarm(mode))
       //  schdeuleCurrentNotification(mode)
     }
-    
 }
 
+extension SettingsViewController: TimeDurationCellDelegate {
+    func timeDurationCell(_ timeDurationCell: TimeDurationCell, didChangeDurationTo hours: Int, _ minutes: Int) {
+        Globals.alarm(mode).alarmTime.start = ClockTime(hour: hours, minute: minutes)
+        Globals.alarm(mode).alarmTime.end = ClockTime(hour: hours, minute: minutes)
+        
+        SavedAlarms.general.saveAlarm(mode, currentAlarm: Globals.alarm(mode))
+    }
+}
+
+//MARK:- Sound Cell Delegate
 extension SettingsViewController: SoundCellDelegate {
     func soundCell(_ soundCell: SoundCell, didReceiveAudioPlaybackError error: Error) {
         print(error)

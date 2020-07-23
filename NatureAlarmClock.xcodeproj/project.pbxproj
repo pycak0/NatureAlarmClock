@@ -7,10 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A440259324C9C0B500A16509 /* UIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A440259224C9C0B500A16509 /* UIKitExtensions.swift */; };
+		A440259524C9CEB200A16509 /* AlarmsVCAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A440259424C9CEB200A16509 /* AlarmsVCAudioPlayer.swift */; };
+		A440259724C9E0D600A16509 /* AlertExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A440259624C9E0D600A16509 /* AlertExtensions.swift */; };
 		A4685D9524C6D7B100C9930C /* SavedAlarms.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4685D9424C6D7B100C9930C /* SavedAlarms.swift */; };
 		A473744124C8A0EE000CFC2F /* AudioHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A473744024C8A0EE000CFC2F /* AudioHelper.swift */; };
 		A473744324C9A080000CFC2F /* woodpecker.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A473744224C9A080000CFC2F /* woodpecker.m4r */; };
 		A473744524C9AB86000CFC2F /* NotificationsBannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A473744424C9AB86000CFC2F /* NotificationsBannerVC.swift */; };
+		A473744724C9B8DC000CFC2F /* TimeDurationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A473744624C9B8DC000CFC2F /* TimeDurationCell.swift */; };
+		A473744924C9B9FC000CFC2F /* TimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A473744824C9B9FC000CFC2F /* TimeCell.swift */; };
 		A4782E9524C580D4002CA812 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4782E9424C580D4002CA812 /* AppDelegate.swift */; };
 		A4782E9724C580D4002CA812 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4782E9624C580D4002CA812 /* SceneDelegate.swift */; };
 		A4782E9C24C580D4002CA812 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4782E9A24C580D4002CA812 /* Main.storyboard */; };
@@ -22,7 +27,7 @@
 		A4782EB824C58687002CA812 /* wakeupImageBig.png in Resources */ = {isa = PBXBuildFile; fileRef = A4782EB724C58687002CA812 /* wakeupImageBig.png */; };
 		A4782EBA24C58946002CA812 /* sleepImageBig.png in Resources */ = {isa = PBXBuildFile; fileRef = A4782EB924C58946002CA812 /* sleepImageBig.png */; };
 		A4782EBC24C58D75002CA812 /* AlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4782EBB24C58D75002CA812 /* AlarmView.swift */; };
-		A484611324C5F41E00376A27 /* TimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A484611224C5F41E00376A27 /* TimeCell.swift */; };
+		A484611324C5F41E00376A27 /* TimeRangeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A484611224C5F41E00376A27 /* TimeRangeCell.swift */; };
 		A484611524C5F7AE00376A27 /* AlarmTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = A484611424C5F7AE00376A27 /* AlarmTime.swift */; };
 		A484611724C5FC1F00376A27 /* AlarmMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A484611624C5FC1F00376A27 /* AlarmMode.swift */; };
 		A484611924C61DF600376A27 /* DataTypesExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A484611824C61DF600376A27 /* DataTypesExtensions.swift */; };
@@ -50,11 +55,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A440259224C9C0B500A16509 /* UIKitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitExtensions.swift; sourceTree = "<group>"; };
+		A440259424C9CEB200A16509 /* AlarmsVCAudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmsVCAudioPlayer.swift; sourceTree = "<group>"; };
+		A440259624C9E0D600A16509 /* AlertExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertExtensions.swift; sourceTree = "<group>"; };
 		A4685D9424C6D7B100C9930C /* SavedAlarms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedAlarms.swift; sourceTree = "<group>"; };
 		A4685D9624C6FA6200C9930C /* NatureAlarmClock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NatureAlarmClock.entitlements; sourceTree = "<group>"; };
 		A473744024C8A0EE000CFC2F /* AudioHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioHelper.swift; sourceTree = "<group>"; };
 		A473744224C9A080000CFC2F /* woodpecker.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = woodpecker.m4r; sourceTree = "<group>"; };
 		A473744424C9AB86000CFC2F /* NotificationsBannerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsBannerVC.swift; sourceTree = "<group>"; };
+		A473744624C9B8DC000CFC2F /* TimeDurationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeDurationCell.swift; sourceTree = "<group>"; };
+		A473744824C9B9FC000CFC2F /* TimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCell.swift; sourceTree = "<group>"; };
 		A4782E9124C580D4002CA812 /* Будильник со звуками природы.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Будильник со звуками природы.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4782E9424C580D4002CA812 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4782E9624C580D4002CA812 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,7 +78,7 @@
 		A4782EB724C58687002CA812 /* wakeupImageBig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wakeupImageBig.png; sourceTree = "<group>"; };
 		A4782EB924C58946002CA812 /* sleepImageBig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sleepImageBig.png; sourceTree = "<group>"; };
 		A4782EBB24C58D75002CA812 /* AlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmView.swift; sourceTree = "<group>"; };
-		A484611224C5F41E00376A27 /* TimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCell.swift; sourceTree = "<group>"; };
+		A484611224C5F41E00376A27 /* TimeRangeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeRangeCell.swift; sourceTree = "<group>"; };
 		A484611424C5F7AE00376A27 /* AlarmTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTime.swift; sourceTree = "<group>"; };
 		A484611624C5FC1F00376A27 /* AlarmMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmMode.swift; sourceTree = "<group>"; };
 		A484611824C61DF600376A27 /* DataTypesExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTypesExtensions.swift; sourceTree = "<group>"; };
@@ -188,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				A4B479A424C59A2D00944FA0 /* AlarmsViewController.swift */,
+				A440259424C9CEB200A16509 /* AlarmsVCAudioPlayer.swift */,
 				A4B479AC24C5B52C00944FA0 /* SettingsViewController.swift */,
 				A4B479BA24C5E8EB00944FA0 /* SettingsVCCollectionView.swift */,
 				A473744424C9AB86000CFC2F /* NotificationsBannerVC.swift */,
@@ -212,6 +223,8 @@
 				A4782EB224C582DD002CA812 /* VCExtensions.swift */,
 				A4B479A624C5A2F200944FA0 /* Colors.swift */,
 				A484611824C61DF600376A27 /* DataTypesExtensions.swift */,
+				A440259224C9C0B500A16509 /* UIKitExtensions.swift */,
+				A440259624C9E0D600A16509 /* AlertExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -237,7 +250,9 @@
 			isa = PBXGroup;
 			children = (
 				A4B479AF24C5C4C800944FA0 /* SoundCell.swift */,
-				A484611224C5F41E00376A27 /* TimeCell.swift */,
+				A484611224C5F41E00376A27 /* TimeRangeCell.swift */,
+				A473744624C9B8DC000CFC2F /* TimeDurationCell.swift */,
+				A473744824C9B9FC000CFC2F /* TimeCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -345,6 +360,7 @@
 				A4B479BB24C5E8EB00944FA0 /* SettingsVCCollectionView.swift in Sources */,
 				A4B479A524C59A2D00944FA0 /* AlarmsViewController.swift in Sources */,
 				A484611924C61DF600376A27 /* DataTypesExtensions.swift in Sources */,
+				A473744924C9B9FC000CFC2F /* TimeCell.swift in Sources */,
 				A4685D9524C6D7B100C9930C /* SavedAlarms.swift in Sources */,
 				A4B479B224C5C5F100944FA0 /* Sound.swift in Sources */,
 				A4782E9F24C580D4002CA812 /* NatureAlarmClock.xcdatamodeld in Sources */,
@@ -352,12 +368,14 @@
 				A484611B24C6296700376A27 /* ClockTime.swift in Sources */,
 				A4782E9524C580D4002CA812 /* AppDelegate.swift in Sources */,
 				A484611524C5F7AE00376A27 /* AlarmTime.swift in Sources */,
+				A473744724C9B8DC000CFC2F /* TimeDurationCell.swift in Sources */,
 				A4C79CEF24C732880085A328 /* CurrentAlarm.swift in Sources */,
 				A4C79CE324C6FF260085A328 /* AlarmsManager.swift in Sources */,
+				A440259524C9CEB200A16509 /* AlarmsVCAudioPlayer.swift in Sources */,
 				A4B479B024C5C4C800944FA0 /* SoundCell.swift in Sources */,
 				A4B479A724C5A2F200944FA0 /* Colors.swift in Sources */,
 				A4782EBC24C58D75002CA812 /* AlarmView.swift in Sources */,
-				A484611324C5F41E00376A27 /* TimeCell.swift in Sources */,
+				A484611324C5F41E00376A27 /* TimeRangeCell.swift in Sources */,
 				A4B479B524C5CE3000944FA0 /* SectionHeaderView.swift in Sources */,
 				A473744524C9AB86000CFC2F /* NotificationsBannerVC.swift in Sources */,
 				A4C79CE524C6FF8A0085A328 /* AlarmNotification.swift in Sources */,
@@ -365,7 +383,9 @@
 				A4B479A924C5ABEC00944FA0 /* AlarmNavigationBarView.swift in Sources */,
 				A484611724C5FC1F00376A27 /* AlarmMode.swift in Sources */,
 				A4782EB324C582DD002CA812 /* VCExtensions.swift in Sources */,
+				A440259724C9E0D600A16509 /* AlertExtensions.swift in Sources */,
 				A4782E9724C580D4002CA812 /* SceneDelegate.swift in Sources */,
+				A440259324C9C0B500A16509 /* UIKitExtensions.swift in Sources */,
 				A4B479AD24C5B52C00944FA0 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

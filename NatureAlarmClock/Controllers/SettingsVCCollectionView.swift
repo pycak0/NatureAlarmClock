@@ -27,12 +27,23 @@ extension SettingsViewController: UICollectionViewDataSource, UICollectionViewDe
         
         switch sectionKind {
         case .time:
-            let timeCell = collectionView.dequeueReusableCell(withReuseIdentifier: TimeCell.reuseIdentifier, for: indexPath) as! TimeCell
-            let time = sections[sectionKind]!.first as! AlarmTime
-            timeCell.configure(with: time, mode: mode)
-            timeCell.delegate = self
-            
-            return timeCell
+            switch mode {
+            case .sleep:
+                let timeDurationCell = collectionView.dequeueReusableCell(withReuseIdentifier: TimeDurationCell.reuseIdentifier, for: indexPath) as! TimeDurationCell
+                let time = sections[sectionKind]!.first as! AlarmTime
+                timeDurationCell.configureCell(with: time, mode: mode)
+                timeDurationCell.delegate = self
+                
+                return timeDurationCell
+                
+            case .wakeUp:
+                let timeCell = collectionView.dequeueReusableCell(withReuseIdentifier: TimeRangeCell.reuseIdentifier, for: indexPath) as! TimeRangeCell
+                let time = sections[sectionKind]!.first as! AlarmTime
+                timeCell.configureCell(with: time, mode: mode)
+                timeCell.delegate = self
+                
+                return timeCell
+            }
             
         case .additionalSound, .mainSound:
             let soundCell = collectionView.dequeueReusableCell(withReuseIdentifier: SoundCell.reuseIdentifier, for: indexPath) as! SoundCell
@@ -61,7 +72,7 @@ extension SettingsViewController: UICollectionViewDataSource, UICollectionViewDe
             fatalError("Invalid section kind")
         }
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeaderView.reuseIdentifier, for: indexPath) as! SectionHeaderView
-        headerView.titleLabel.text = sectionKind.title
+        headerView.titleLabel.text = sectionKind.title(mode)
         
         return headerView
     }

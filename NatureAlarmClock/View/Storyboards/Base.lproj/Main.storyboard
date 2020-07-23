@@ -127,7 +127,7 @@
                                             <outlet property="soundNameLabel" destination="Ald-DP-28s" id="FJ3-BU-2q9"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="TimeCell" id="a5r-Yh-jOZ" customClass="TimeCell" customModule="Будильник_со_звуками_природы" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="TimeRangeCell" id="a5r-Yh-jOZ" customClass="TimeRangeCell" customModule="Будильник_со_звуками_природы" customModuleProvider="target">
                                         <rect key="frame" x="22.666666666666668" y="204" width="369" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="bPi-Pd-svX">
@@ -179,6 +179,34 @@
                                             <outlet property="startTimeField" destination="1op-Yc-bov" id="cBz-eN-7BG"/>
                                         </connections>
                                     </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="TimeDurationCell" id="UmT-8q-1lJ" customClass="TimeDurationCell" customModule="Будильник_со_звуками_природы" customModuleProvider="target">
+                                        <rect key="frame" x="22.666666666666668" y="279" width="369" height="65"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="wdU-wK-Jh8">
+                                            <rect key="frame" x="0.0" y="0.0" width="369" height="65"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="1 ч 0 мин" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IzL-rZ-B9H">
+                                                    <rect key="frame" x="100" y="10" width="169" height="45"/>
+                                                    <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="IzL-rZ-B9H" firstAttribute="leading" secondItem="wdU-wK-Jh8" secondAttribute="leading" constant="100" id="3O9-VD-BHN"/>
+                                                <constraint firstItem="IzL-rZ-B9H" firstAttribute="centerY" secondItem="wdU-wK-Jh8" secondAttribute="centerY" id="Kao-Wf-g46"/>
+                                                <constraint firstItem="IzL-rZ-B9H" firstAttribute="top" secondItem="wdU-wK-Jh8" secondAttribute="top" constant="10" id="lqh-h0-xPi"/>
+                                                <constraint firstItem="IzL-rZ-B9H" firstAttribute="centerX" secondItem="wdU-wK-Jh8" secondAttribute="centerX" id="uVw-hA-AwL"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="369" height="65"/>
+                                        <connections>
+                                            <outlet property="timeField" destination="IzL-rZ-B9H" id="cpN-cj-5aZ"/>
+                                        </connections>
+                                    </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="SectionHeaderView" id="V87-Vy-sOr" customClass="SectionHeaderView" customModule="Будильник_со_звуками_природы" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -218,7 +246,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="901-qE-03r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1413.5999999999999" y="-107.49625187406298"/>
+            <point key="canvasLocation" x="1413.0434782608697" y="-107.8125"/>
         </scene>
         <!--Notifications BannerVC-->
         <scene sceneID="okO-ah-yUs">

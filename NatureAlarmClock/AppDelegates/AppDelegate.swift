@@ -30,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let savedWakeAlarm = SavedAlarms.general.getAlarm(.wakeUp)
         print(savedWakeAlarm)
         Globals.sleepAlarm = CurrentAlarm(savedSleepAlarm)
+        Globals.sleepAlarm.isSwitchedOn = false
         Globals.wakeUpAlarm = CurrentAlarm(savedWakeAlarm)
         
 //        Globals.alarms[.sleep] = CurrentAlarm(savedSleepAlarm)

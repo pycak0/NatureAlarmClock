@@ -42,7 +42,7 @@ struct AlarmTime {
     }
     
     var intervalRepresentation: String {
-        return "\(start.string) – \(end.string)"
+        return "\(start.shortString) – \(end.shortString)"
     }
 
 }

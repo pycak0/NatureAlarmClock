@@ -75,6 +75,11 @@ class AlarmView: UIView {
         }
     }
     
+    func setSwitchButtonImage(_ image: UIImage?, tintColor: UIColor = .systemGreen) {
+        switchButton.setImage(image, for: .normal)
+        switchButton.tintColor = tintColor
+    }
+    
 }
 
 private extension AlarmView {

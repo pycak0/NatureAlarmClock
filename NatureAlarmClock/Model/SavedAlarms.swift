@@ -27,8 +27,8 @@ class SavedAlarms {
         var secondSoundName: String
         var isSwitchedOn: Bool
         
-        init(_ dictionary: [String: Any]) {
-            self.startDate = dictionary[AlarmKeys.startDate.rawValue] as? Date ?? Date()
+        init(_ dictionary: [String: Any], defaultStartDate: Date = Date()) {
+            self.startDate = dictionary[AlarmKeys.startDate.rawValue] as? Date ?? defaultStartDate
             self.endDate = dictionary[AlarmKeys.endDate.rawValue] as? Date ?? Date()
             self.mainSoundName = dictionary[AlarmKeys.mainSound.rawValue] as? String ?? "forestSound.m4r"
             self.secondSoundName = dictionary[AlarmKeys.secondSound.rawValue] as? String ?? "woodpecker.m4r"
@@ -38,7 +38,8 @@ class SavedAlarms {
     
     func getAlarm(_ mode: AlarmMode) -> SavedAlarm {
         let dict = defaults.value(forKey: mode.rawValue) as? [String : Any] ?? [:]
-        return SavedAlarm(dict)
+        let date = mode == .sleep ? Date().withGivenTime(hours: 0, minutes: 30) : Date()
+        return SavedAlarm(dict, defaultStartDate: date)
     }
     
     func saveAlarm(_ mode: AlarmMode, alarm: SavedAlarm) {
