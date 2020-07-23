@@ -62,8 +62,8 @@ class AudioHelper {
             completion(nil, .failedToCreateTrack)
             return
         }
-        var compositionMainAudioTrack: AVMutableCompositionTrack = mainTrack
-        var compositionSecondaryAudioTrack: AVMutableCompositionTrack = secondTrack
+        let compositionMainAudioTrack: AVMutableCompositionTrack = mainTrack
+        let compositionSecondaryAudioTrack: AVMutableCompositionTrack = secondTrack
 
         let mainAsset = AVAsset(url: mainUrl)
         let secondAsset = AVAsset(url: secondUrl)
@@ -80,7 +80,7 @@ class AudioHelper {
         //let res = CMTimeCompare(mainDuration, secondDuration)
         
         let mainTimeRange = CMTimeRangeMake(start: .zero, duration: mainDuration)
-        let secondTimeRange = CMTimeRangeMake(start: .zero, duration: secondDuration)
+        //let secondTimeRange = CMTimeRangeMake(start: .zero, duration: secondDuration)
         
         do {
             try compositionMainAudioTrack.insertTimeRange(mainTimeRange, of: mainAssetTrack, at: .zero)

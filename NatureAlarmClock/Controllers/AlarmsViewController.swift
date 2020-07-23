@@ -112,8 +112,8 @@ extension AlarmsViewController: AlarmViewDelegate {
 
 extension AlarmsViewController: AudioHelperDelegate {
     func audioHelper(didFinishExportSession exportSession: AVAssetExportSession, with error: ExportError?, or url: URL?) {
-        print(url)
-        print(error)
+        print(url ?? "no url")
+        print(error ?? "success")
     }
     
 }

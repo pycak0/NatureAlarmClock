@@ -98,7 +98,7 @@ extension SettingsViewController: UICollectionViewDataSource, UICollectionViewDe
            // schdeuleCurrentNotification(mode)
         }
         
-        AudioHelper.mergeAudios(mainSound: pickedMainSound, secondSound: pickedSecondSound) { [weak self] (url, error) in
+        AudioHelper.mergeAudios(mainSound: pickedMainSound, secondSound: pickedSecondSound) { (url, error) in
             print(error ?? "success")
         }
     }
