@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVKit
+import UserNotifications
 
 class AlarmsViewController: UIViewController {
     
@@ -20,6 +22,8 @@ class AlarmsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkNotificationSettings()
+        
         setupNavBarTitleView(delegate: nil)
         configureViews()
     }
@@ -55,6 +59,19 @@ class AlarmsViewController: UIViewController {
         
         updateSavedTime()
     }
+    
+    private func checkNotificationSettings() {
+        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+            DispatchQueue.main.async {
+                switch settings.authorizationStatus {
+                case.notDetermined:
+                    self.performSegue(withIdentifier: "Notifications Banner", sender: nil)
+                default:
+                    break
+                }
+            }
+        }
+    }
 
 }
 
@@ -72,19 +89,31 @@ extension AlarmsViewController: AlarmViewDelegate {
         alarmView.isSwitchedOn.toggle()
         SavedAlarms.general.saveAlarm(alarmView.mode, currentAlarm: Globals.alarm(alarmView.mode))
         
-        if Globals.alarm(alarmView.mode).isSwitchedOn {
+        let mode = alarmView.mode!
+        
+        if Globals.alarm(mode).isSwitchedOn {
             
-            let startDate = Globals.alarm(alarmView.mode).alarmTime.start.dateComponents
-            let endDate = Globals.alarm(alarmView.mode).alarmTime.end.dateComponents
+            let startDate = Globals.alarm(mode).alarmTime.start.dateComponents
+            let endDate = Globals.alarm(mode).alarmTime.end.dateComponents
+            let soundName = Globals.alarm(mode).mixedSound ?? Globals.alarm(mode).mainSoundFileName
             
             AlarmsManager.general.scheduleNotification(alarm:
-                AlarmNotification(mode: alarmView.mode, title: alarmView.mode.message,
-                                  soundFileName: Globals.alarm(alarmView.mode).soundFileName,
+                AlarmNotification(mode: mode, title: mode.message,
+                                  soundFileName: soundName,
                                   startDate: startDate, endDate: endDate))
             
         } else {
-            AlarmsManager.general.cancelPendingNotifications(alarmView.mode)
+            AlarmsManager.general.cancelPendingNotifications(mode)
         }
+    }
+    
+}
+
+
+extension AlarmsViewController: AudioHelperDelegate {
+    func audioHelper(didFinishExportSession exportSession: AVAssetExportSession, with error: ExportError?, or url: URL?) {
+        print(url)
+        print(error)
     }
     
 }

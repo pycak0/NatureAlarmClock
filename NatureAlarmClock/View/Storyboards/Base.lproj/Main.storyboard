@@ -13,7 +13,7 @@
         <!--Alarms View Controller-->
         <scene sceneID="Veh-xa-hM4">
             <objects>
-                <viewController id="mly-QF-MJC" customClass="AlarmsViewController" customModule="NatureAlarmClock" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="mly-QF-MJC" customClass="AlarmsViewController" customModule="Будильник_со_звуками_природы" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rpF-Xx-F2U">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,11 +21,11 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="5Ms-3O-tpc">
                                 <rect key="frame" x="16" y="122" width="382" height="710"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JHx-KR-pV7" customClass="AlarmView" customModule="NatureAlarmClock" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JHx-KR-pV7" customClass="AlarmView" customModule="Будильник_со_звуками_природы" customModuleProvider="target">
                                         <rect key="frame" x="19.666666666666657" y="0.0" width="343" height="335"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ls4-cT-i4Z" customClass="AlarmView" customModule="NatureAlarmClock" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ls4-cT-i4Z" customClass="AlarmView" customModule="Будильник_со_звуками_природы" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="375" width="382" height="335"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
@@ -52,6 +52,7 @@
                         <outlet property="sleepAlarmView" destination="Ls4-cT-i4Z" id="wvY-QF-d1L"/>
                         <outlet property="wakeupAlarmView" destination="JHx-KR-pV7" id="16N-nf-kmT"/>
                         <segue destination="55v-Co-F5s" kind="show" identifier="SettingsScreen" id="3Qg-7z-QfE"/>
+                        <segue destination="35j-Ef-GNM" kind="presentation" identifier="Notifications Banner" id="E8S-r9-iU5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IOy-Cl-cSO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -61,7 +62,7 @@
         <!--Settings View Controller-->
         <scene sceneID="Iif-f3-G1X">
             <objects>
-                <viewController id="55v-Co-F5s" customClass="SettingsViewController" customModule="NatureAlarmClock" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="55v-Co-F5s" customClass="SettingsViewController" customModule="Будильник_со_звуками_природы" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dvO-HK-aTG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -76,7 +77,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SoundCell" id="gjS-Mh-Iq9" customClass="SoundCell" customModule="NatureAlarmClock" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SoundCell" id="gjS-Mh-Iq9" customClass="SoundCell" customModule="Будильник_со_звуками_природы" customModuleProvider="target">
                                         <rect key="frame" x="151.66666666666666" y="50" width="111" height="144"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="B9m-Jp-chI">
@@ -126,7 +127,7 @@
                                             <outlet property="soundNameLabel" destination="Ald-DP-28s" id="FJ3-BU-2q9"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="TimeCell" id="a5r-Yh-jOZ" customClass="TimeCell" customModule="NatureAlarmClock" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="TimeCell" id="a5r-Yh-jOZ" customClass="TimeCell" customModule="Будильник_со_звуками_природы" customModuleProvider="target">
                                         <rect key="frame" x="22.666666666666668" y="204" width="369" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="bPi-Pd-svX">
@@ -179,7 +180,7 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="SectionHeaderView" id="V87-Vy-sOr" customClass="SectionHeaderView" customModule="NatureAlarmClock" customModuleProvider="target">
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="SectionHeaderView" id="V87-Vy-sOr" customClass="SectionHeaderView" customModule="Будильник_со_звуками_природы" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -218,6 +219,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="901-qE-03r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1413.5999999999999" y="-107.49625187406298"/>
+        </scene>
+        <!--Notifications BannerVC-->
+        <scene sceneID="okO-ah-yUs">
+            <objects>
+                <viewController modalPresentationStyle="overFullScreen" id="35j-Ef-GNM" customClass="NotificationsBannerVC" customModule="Будильник_со_звуками_природы" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jd4-op-orE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WMq-JG-h2f">
+                                <rect key="frame" x="101.66666666666669" y="715" width="211" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Включить уведомления"/>
+                                <connections>
+                                    <action selector="turnOnButtonPressed:" destination="35j-Ef-GNM" eventType="touchUpInside" id="XOj-Gd-iQl"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9jC-i7-Njf">
+                                <rect key="frame" x="30" y="390.33333333333331" width="354" height="125.33333333333331"/>
+                                <string key="text">Чтобы будильник мог работать, Вам необходимо включить уведмоления в приложении.
+Управлять уведомлениями Вы можете в Настройках.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="9jC-i7-Njf" firstAttribute="centerY" secondItem="qvZ-Gc-fll" secondAttribute="centerY" id="FpY-9v-NIK"/>
+                            <constraint firstItem="WMq-JG-h2f" firstAttribute="centerX" secondItem="qvZ-Gc-fll" secondAttribute="centerX" id="S1n-sC-1eU"/>
+                            <constraint firstItem="9jC-i7-Njf" firstAttribute="centerX" secondItem="qvZ-Gc-fll" secondAttribute="centerX" id="U8r-Qf-2Bo"/>
+                            <constraint firstItem="9jC-i7-Njf" firstAttribute="leading" secondItem="qvZ-Gc-fll" secondAttribute="leading" constant="30" id="hvR-VV-fo6"/>
+                            <constraint firstItem="qvZ-Gc-fll" firstAttribute="bottom" secondItem="WMq-JG-h2f" secondAttribute="bottom" constant="112" id="mWw-3X-Jck"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qvZ-Gc-fll"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="GEx-BT-Lff"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NHh-J0-vch" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="46" y="607"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vjJ-zw-shO">

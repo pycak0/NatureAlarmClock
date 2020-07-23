@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		A4685D9524C6D7B100C9930C /* SavedAlarms.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4685D9424C6D7B100C9930C /* SavedAlarms.swift */; };
+		A473744124C8A0EE000CFC2F /* AudioHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A473744024C8A0EE000CFC2F /* AudioHelper.swift */; };
+		A473744324C9A080000CFC2F /* woodpecker.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A473744224C9A080000CFC2F /* woodpecker.m4r */; };
+		A473744524C9AB86000CFC2F /* NotificationsBannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A473744424C9AB86000CFC2F /* NotificationsBannerVC.swift */; };
 		A4782E9524C580D4002CA812 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4782E9424C580D4002CA812 /* AppDelegate.swift */; };
 		A4782E9724C580D4002CA812 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4782E9624C580D4002CA812 /* SceneDelegate.swift */; };
 		A4782E9C24C580D4002CA812 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4782E9A24C580D4002CA812 /* Main.storyboard */; };
@@ -49,6 +52,9 @@
 /* Begin PBXFileReference section */
 		A4685D9424C6D7B100C9930C /* SavedAlarms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedAlarms.swift; sourceTree = "<group>"; };
 		A4685D9624C6FA6200C9930C /* NatureAlarmClock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NatureAlarmClock.entitlements; sourceTree = "<group>"; };
+		A473744024C8A0EE000CFC2F /* AudioHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioHelper.swift; sourceTree = "<group>"; };
+		A473744224C9A080000CFC2F /* woodpecker.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = woodpecker.m4r; sourceTree = "<group>"; };
+		A473744424C9AB86000CFC2F /* NotificationsBannerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsBannerVC.swift; sourceTree = "<group>"; };
 		A4782E9124C580D4002CA812 /* Будильник со звуками природы.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Будильник со звуками природы.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4782E9424C580D4002CA812 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4782E9624C580D4002CA812 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,9 +152,9 @@
 		A4782EAC24C58100002CA812 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A4782EAD24C5810E002CA812 /* Storyboards */,
 				A4B479B324C5CDFE00944FA0 /* Supplementaries */,
 				A4B479AE24C5C4AD00944FA0 /* Cells */,
-				A4782EAD24C5810E002CA812 /* Storyboards */,
 				A4782EB024C581CB002CA812 /* CustomViews */,
 			);
 			path = View;
@@ -184,6 +190,7 @@
 				A4B479A424C59A2D00944FA0 /* AlarmsViewController.swift */,
 				A4B479AC24C5B52C00944FA0 /* SettingsViewController.swift */,
 				A4B479BA24C5E8EB00944FA0 /* SettingsVCCollectionView.swift */,
+				A473744424C9AB86000CFC2F /* NotificationsBannerVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -212,6 +219,7 @@
 		A4782EB624C58670002CA812 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				A473744224C9A080000CFC2F /* woodpecker.m4r */,
 				A4C79CE624C70D850085A328 /* forestSound.m4r */,
 				A4C735C524C761030024C866 /* river.mp3 */,
 				A4C735C724C7619D0024C866 /* rain.mp3 */,
@@ -246,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				A4C79CE224C6FF260085A328 /* AlarmsManager.swift */,
+				A473744024C8A0EE000CFC2F /* AudioHelper.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -321,6 +330,7 @@
 				A4B479B724C5E3A200944FA0 /* launchScreen.png in Resources */,
 				A4B479B924C5E43C00944FA0 /* alarmBig.png in Resources */,
 				A4C735C824C7619D0024C866 /* rain.mp3 in Resources */,
+				A473744324C9A080000CFC2F /* woodpecker.m4r in Resources */,
 				A4782E9C24C580D4002CA812 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -338,6 +348,7 @@
 				A4685D9524C6D7B100C9930C /* SavedAlarms.swift in Sources */,
 				A4B479B224C5C5F100944FA0 /* Sound.swift in Sources */,
 				A4782E9F24C580D4002CA812 /* NatureAlarmClock.xcdatamodeld in Sources */,
+				A473744124C8A0EE000CFC2F /* AudioHelper.swift in Sources */,
 				A484611B24C6296700376A27 /* ClockTime.swift in Sources */,
 				A4782E9524C580D4002CA812 /* AppDelegate.swift in Sources */,
 				A484611524C5F7AE00376A27 /* AlarmTime.swift in Sources */,
@@ -348,6 +359,7 @@
 				A4782EBC24C58D75002CA812 /* AlarmView.swift in Sources */,
 				A484611324C5F41E00376A27 /* TimeCell.swift in Sources */,
 				A4B479B524C5CE3000944FA0 /* SectionHeaderView.swift in Sources */,
+				A473744524C9AB86000CFC2F /* NotificationsBannerVC.swift in Sources */,
 				A4C79CE524C6FF8A0085A328 /* AlarmNotification.swift in Sources */,
 				A4C79CF124C733110085A328 /* Globals.swift in Sources */,
 				A4B479A924C5ABEC00944FA0 /* AlarmNavigationBarView.swift in Sources */,
@@ -500,6 +512,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = NatureAlarmClock/NatureAlarmClock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = P89V4KBVYT;
 				INFOPLIST_FILE = NatureAlarmClock/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -520,6 +533,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = NatureAlarmClock/NatureAlarmClock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = P89V4KBVYT;
 				INFOPLIST_FILE = NatureAlarmClock/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;

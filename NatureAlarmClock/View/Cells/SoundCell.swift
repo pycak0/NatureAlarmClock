@@ -50,6 +50,7 @@ class SoundCell: UICollectionViewCell {
         }
         do {
             player = try AVAudioPlayer(contentsOf: url)
+            player?.numberOfLoops = -1
         }
         catch(let error) {
             delegate?.soundCell(self, didReceiveAudioPlaybackError: error)

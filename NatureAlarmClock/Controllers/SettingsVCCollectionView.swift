@@ -39,8 +39,14 @@ extension SettingsViewController: UICollectionViewDataSource, UICollectionViewDe
             let sound = sections[sectionKind]![indexPath.row] as! Sound
             soundCell.configure(with: sound)
             soundCell.delegate = self
-            if sound.fileNamePlusExtension == Globals.alarm(mode).soundFileName {
+            if sound.fileNamePlusExtension == Globals.alarm(mode).mainSoundFileName {
                 soundCell.setSelected(mode)
+                pickedMainSound = sound
+            }
+            
+            if sound.fileNamePlusExtension == Globals.alarm(mode).secondarySoundFileName {
+                soundCell.setSelected(mode)
+                pickedSecondSound = sound
             }
             
             return soundCell
@@ -78,17 +84,22 @@ extension SettingsViewController: UICollectionViewDataSource, UICollectionViewDe
             deselectItems(in: collectionView, at: sectionKind)
             cell.setSelected(mode)
             
-//            Globals.alarm(mode).soundFileName = sound.fileName
-//            schdeuleCurrentNotification(mode)
-//            cell.isPlaying ? cell.pause() : cell.play()
+            Globals.alarm(mode).secondarySoundFileName = sound.fileNamePlusExtension
+            pickedSecondSound = sound
+          //  schdeuleCurrentNotification(mode)
         case .mainSound:
             guard let cell = collectionView.cellForItem(at: indexPath) as? SoundCell,
                 let sound = sections[sectionKind]?[indexPath.row] as? Sound else { return }
             deselectItems(in: collectionView, at: sectionKind)
             cell.setSelected(mode)
             
-            Globals.alarm(mode).soundFileName = sound.fileNamePlusExtension
-            schdeuleCurrentNotification(mode)
+            Globals.alarm(mode).mainSoundFileName = sound.fileNamePlusExtension
+            pickedMainSound = sound
+           // schdeuleCurrentNotification(mode)
+        }
+        
+        AudioHelper.mergeAudios(mainSound: pickedMainSound, secondSound: pickedSecondSound) { [weak self] (url, error) in
+            print(error ?? "success")
         }
     }
     

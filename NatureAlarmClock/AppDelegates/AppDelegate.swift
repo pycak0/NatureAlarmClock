@@ -19,12 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         UNUserNotificationCenter.current().delegate = self
-        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-        UNUserNotificationCenter.current().requestAuthorization(options: authOptions, completionHandler: { granted, error in
-            if !granted {
-                print("not granted")
-            }
-        })
+//        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+//        UNUserNotificationCenter.current().requestAuthorization(options: authOptions, completionHandler: { granted, error in
+//            if !granted {
+//                print("not granted")
+//            }
+//        })
         
         let savedSleepAlarm = SavedAlarms.general.getAlarm(.sleep)
         let savedWakeAlarm = SavedAlarms.general.getAlarm(.wakeUp)

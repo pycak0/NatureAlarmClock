@@ -29,22 +29,33 @@ class AlarmsManager {
     ///Executes on a second thread
     private func schedule(_ alarm: AlarmNotification) {
         print("Setting Notification with sound: \(alarm.soundFileName)")
+        
+        let calendar = Calendar.current
+        guard let startDate = calendar.date(from: alarm.startDate),
+            let endDate = calendar.date(from: alarm.endDate) else {
+                print("Error setting alarm")
+                return
+        }
+        
+        let interval = endDate.timeIntervalSince(startDate)
+        var secondsPerNotification = 8
+//        if interval <= 16 * TimeInterval.secondsIn(.minute) {
+//            secondsPerNotification = 15
+//        }
+        let repeatTimes = Int(interval) / secondsPerNotification
+//        secondsPerNotification = interval / (repeatTimes - 8)
+//
+//        func notificationTime(for iteration: Int, of totalTimes: Int) -> TimeInterval {
+//            if 0 <= iteration && iteration < 4 || totalTimes - 4 <= iteration && iteration < totalTimes {
+//                return TimeInterval(15)
+//            }
+//            return TimeInterval(secondsPerNotification)
+//        }
         // Get user notification settings. Might be useful
         // UNUserNotificationCenter.current().getNotificationSettings { (settings) in
         //      settings.alertStyle == .banner
         // }
         DispatchQueue.global(qos: .userInitiated).async {
-            let calendar = Calendar.current
-            guard let startDate = calendar.date(from: alarm.startDate),
-                let endDate = calendar.date(from: alarm.endDate) else {
-                    print("Error setting alarm")
-                    return
-            }
-            
-            let interval = endDate.timeIntervalSince(startDate)
-            let secondsPerNotification = 5
-            let repeatTimes = Int(interval) / secondsPerNotification
-            
             for iteration in 0..<repeatTimes {
                 
                 let content = UNMutableNotificationContent()
@@ -55,7 +66,7 @@ class AlarmsManager {
                 let date = startDate.addingTimeInterval(TimeInterval(iteration * secondsPerNotification))
                 let components = calendar.dateComponents([.hour, .minute, .second], from: date)
                 
-                let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
+                let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
                 let request = UNNotificationRequest(identifier: alarm.mode.rawValue + "\(iteration)", content: content, trigger: trigger)
                 
                 UNUserNotificationCenter.current().add(request) { (error) in
