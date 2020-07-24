@@ -21,7 +21,7 @@ class CurrentAlarm {
         self.isSwitchedOn = savedAlarm.isSwitchedOn
     }
     
-    var mixedSound: String? {
+    var mixedSoundFileName: String? {
         let mainName = URL(string: mainSoundFileName)!.deletingPathExtension().absoluteString
         let secondName = URL(string: secondarySoundFileName)!.deletingPathExtension().absoluteString
         let fullFileName = mainName + secondName + ".m4a"
@@ -31,6 +31,26 @@ class CurrentAlarm {
             return fullFileName
         }
         return nil
+    }
+    
+    var mixedSoundUrl: URL? {
+        guard let fileName = mixedSoundFileName else {
+            return nil
+        }
+        return AudioHelper.soundsDirectory.appendingPathComponent(fileName)
+    }
+    
+    ///Getter firslty checks the `'Bundle'` directory, then `'Library/Sounds'` for the suitable file. If nothing is found, returns `nil`
+    var mainSoundUrl: URL? {
+        let soundDirectoryUrl = AudioHelper.soundsDirectory.appendingPathComponent(mainSoundFileName)
+        if FileManager.default.fileExists(atPath: soundDirectoryUrl.path) {
+            return soundDirectoryUrl
+        }
+        if let ext = URL(string: mainSoundFileName)?.pathExtension,
+            let mainSoundName = URL(string: mainSoundFileName)?.deletingPathExtension().lastPathComponent,
+            let bundleUrl = Bundle.main.url(forResource: mainSoundName, withExtension: ext) {
+                return bundleUrl
+        } else { return nil }
     }
     
     var savedAlarm: SavedAlarms.SavedAlarm {

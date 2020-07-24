@@ -7,10 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49D501E03B39B0FBAAB860F2 /* libPods-NatureAlarmClock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E0CEB3C0FFFF22DBE148B7C5 /* libPods-NatureAlarmClock.a */; };
+		A440259324C9C0B500A16509 /* UIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A440259224C9C0B500A16509 /* UIKitExtensions.swift */; };
+		A440259524C9CEB200A16509 /* AlarmsVCAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A440259424C9CEB200A16509 /* AlarmsVCAudioPlayer.swift */; };
+		A440259724C9E0D600A16509 /* AlertExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A440259624C9E0D600A16509 /* AlertExtensions.swift */; };
 		A4685D9524C6D7B100C9930C /* SavedAlarms.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4685D9424C6D7B100C9930C /* SavedAlarms.swift */; };
 		A473744124C8A0EE000CFC2F /* AudioHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A473744024C8A0EE000CFC2F /* AudioHelper.swift */; };
-		A473744324C9A080000CFC2F /* woodpecker.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A473744224C9A080000CFC2F /* woodpecker.m4r */; };
 		A473744524C9AB86000CFC2F /* NotificationsBannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A473744424C9AB86000CFC2F /* NotificationsBannerVC.swift */; };
+		A473744724C9B8DC000CFC2F /* TimeDurationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A473744624C9B8DC000CFC2F /* TimeDurationCell.swift */; };
+		A473744924C9B9FC000CFC2F /* TimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A473744824C9B9FC000CFC2F /* TimeCell.swift */; };
 		A4782E9524C580D4002CA812 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4782E9424C580D4002CA812 /* AppDelegate.swift */; };
 		A4782E9724C580D4002CA812 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4782E9624C580D4002CA812 /* SceneDelegate.swift */; };
 		A4782E9C24C580D4002CA812 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4782E9A24C580D4002CA812 /* Main.storyboard */; };
@@ -22,7 +27,7 @@
 		A4782EB824C58687002CA812 /* wakeupImageBig.png in Resources */ = {isa = PBXBuildFile; fileRef = A4782EB724C58687002CA812 /* wakeupImageBig.png */; };
 		A4782EBA24C58946002CA812 /* sleepImageBig.png in Resources */ = {isa = PBXBuildFile; fileRef = A4782EB924C58946002CA812 /* sleepImageBig.png */; };
 		A4782EBC24C58D75002CA812 /* AlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4782EBB24C58D75002CA812 /* AlarmView.swift */; };
-		A484611324C5F41E00376A27 /* TimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A484611224C5F41E00376A27 /* TimeCell.swift */; };
+		A484611324C5F41E00376A27 /* TimeRangeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A484611224C5F41E00376A27 /* TimeRangeCell.swift */; };
 		A484611524C5F7AE00376A27 /* AlarmTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = A484611424C5F7AE00376A27 /* AlarmTime.swift */; };
 		A484611724C5FC1F00376A27 /* AlarmMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A484611624C5FC1F00376A27 /* AlarmMode.swift */; };
 		A484611924C61DF600376A27 /* DataTypesExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A484611824C61DF600376A27 /* DataTypesExtensions.swift */; };
@@ -38,23 +43,45 @@
 		A4B479B724C5E3A200944FA0 /* launchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = A4B479B624C5E3A100944FA0 /* launchScreen.png */; };
 		A4B479B924C5E43C00944FA0 /* alarmBig.png in Resources */ = {isa = PBXBuildFile; fileRef = A4B479B824C5E43C00944FA0 /* alarmBig.png */; };
 		A4B479BB24C5E8EB00944FA0 /* SettingsVCCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B479BA24C5E8EB00944FA0 /* SettingsVCCollectionView.swift */; };
-		A4C735C224C75FEA0024C866 /* Night.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A4C735C124C75FEA0024C866 /* Night.mp3 */; };
-		A4C735C424C760930024C866 /* seaSurf.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A4C735C324C760930024C866 /* seaSurf.mp3 */; };
-		A4C735C624C761030024C866 /* river.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A4C735C524C761030024C866 /* river.mp3 */; };
-		A4C735C824C7619D0024C866 /* rain.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A4C735C724C7619D0024C866 /* rain.mp3 */; };
 		A4C79CE324C6FF260085A328 /* AlarmsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C79CE224C6FF260085A328 /* AlarmsManager.swift */; };
 		A4C79CE524C6FF8A0085A328 /* AlarmNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C79CE424C6FF8A0085A328 /* AlarmNotification.swift */; };
-		A4C79CE724C70D850085A328 /* forestSound.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A4C79CE624C70D850085A328 /* forestSound.m4r */; };
 		A4C79CEF24C732880085A328 /* CurrentAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C79CEE24C732880085A328 /* CurrentAlarm.swift */; };
 		A4C79CF124C733110085A328 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C79CF024C733110085A328 /* Globals.swift */; };
+		A4F0F82A24CAD92200CC5BCB /* plane.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A4F0F82924CAD92100CC5BCB /* plane.m4a */; };
+		A4F0F82C24CAD99800CC5BCB /* SoundsLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0F82B24CAD99800CC5BCB /* SoundsLibrary.swift */; };
+		A4F0F83024CAF02B00CC5BCB /* waterfall.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A4F0F82F24CAF02B00CC5BCB /* waterfall.m4a */; };
+		A4F0F83224CAFBEB00CC5BCB /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0F83124CAFBEB00CC5BCB /* SplashViewController.swift */; };
+		A4F0F83424CAFFB000CC5BCB /* wind.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A4F0F83324CAFFB000CC5BCB /* wind.m4a */; };
+		A4F0F83624CB030C00CC5BCB /* piano.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A4F0F83524CB030C00CC5BCB /* piano.m4a */; };
+		A4F0F83A24CB037300CC5BCB /* flute.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A4F0F83924CB037300CC5BCB /* flute.m4r */; };
+		A4F0F83C24CB03E100CC5BCB /* tropicalForest.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A4F0F83B24CB03E100CC5BCB /* tropicalForest.m4r */; };
+		A4F0F83E24CB047200CC5BCB /* tibet.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A4F0F83D24CB047200CC5BCB /* tibet.m4r */; };
+		A4F0F84024CB0A2100CC5BCB /* stream.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A4F0F83F24CB0A2100CC5BCB /* stream.m4r */; };
+		A4F0F84224CB0AB200CC5BCB /* sea.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A4F0F84124CB0AB200CC5BCB /* sea.m4r */; };
+		A4F0F84424CB0B1400CC5BCB /* train.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A4F0F84324CB0B1400CC5BCB /* train.m4r */; };
+		A4F0F84624CB0BB300CC5BCB /* beach.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A4F0F84524CB0B9C00CC5BCB /* beach.m4r */; };
+		A4F0F84824CB0C1A00CC5BCB /* birds.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A4F0F84724CB0C1A00CC5BCB /* birds.m4r */; };
+		A4F0F84A24CB0C5D00CC5BCB /* cat.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A4F0F84924CB0C5D00CC5BCB /* cat.m4r */; };
+		A4F0F84C24CB0C9B00CC5BCB /* book.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A4F0F84B24CB0C9B00CC5BCB /* book.m4r */; };
+		A4F0F84E24CB0EA500CC5BCB /* fireplace.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A4F0F84D24CB0EA500CC5BCB /* fireplace.m4r */; };
+		A4F0F85024CB0F0700CC5BCB /* yoga.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A4F0F84F24CB0F0700CC5BCB /* yoga.m4r */; };
+		A4F0F85224CB0F3900CC5BCB /* money.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A4F0F85124CB0F3900CC5BCB /* money.m4r */; };
+		A4F0F85424CB0FB100CC5BCB /* thunderstorm.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A4F0F85324CB0FB100CC5BCB /* thunderstorm.m4r */; };
+		A4F0F85624CB100000CC5BCB /* city.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A4F0F85524CB100000CC5BCB /* city.m4r */; };
+		A4F0F85824CB11F700CC5BCB /* chinese.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A4F0F85724CB11F600CC5BCB /* chinese.m4r */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F0B5123798108AF022893C8 /* Pods-NatureAlarmClock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NatureAlarmClock.release.xcconfig"; path = "Target Support Files/Pods-NatureAlarmClock/Pods-NatureAlarmClock.release.xcconfig"; sourceTree = "<group>"; };
+		A440259224C9C0B500A16509 /* UIKitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitExtensions.swift; sourceTree = "<group>"; };
+		A440259424C9CEB200A16509 /* AlarmsVCAudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmsVCAudioPlayer.swift; sourceTree = "<group>"; };
+		A440259624C9E0D600A16509 /* AlertExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertExtensions.swift; sourceTree = "<group>"; };
 		A4685D9424C6D7B100C9930C /* SavedAlarms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedAlarms.swift; sourceTree = "<group>"; };
 		A4685D9624C6FA6200C9930C /* NatureAlarmClock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NatureAlarmClock.entitlements; sourceTree = "<group>"; };
 		A473744024C8A0EE000CFC2F /* AudioHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioHelper.swift; sourceTree = "<group>"; };
-		A473744224C9A080000CFC2F /* woodpecker.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = woodpecker.m4r; sourceTree = "<group>"; };
 		A473744424C9AB86000CFC2F /* NotificationsBannerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsBannerVC.swift; sourceTree = "<group>"; };
+		A473744624C9B8DC000CFC2F /* TimeDurationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeDurationCell.swift; sourceTree = "<group>"; };
+		A473744824C9B9FC000CFC2F /* TimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCell.swift; sourceTree = "<group>"; };
 		A4782E9124C580D4002CA812 /* Будильник со звуками природы.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Будильник со звуками природы.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4782E9424C580D4002CA812 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4782E9624C580D4002CA812 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,7 +95,7 @@
 		A4782EB724C58687002CA812 /* wakeupImageBig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wakeupImageBig.png; sourceTree = "<group>"; };
 		A4782EB924C58946002CA812 /* sleepImageBig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sleepImageBig.png; sourceTree = "<group>"; };
 		A4782EBB24C58D75002CA812 /* AlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmView.swift; sourceTree = "<group>"; };
-		A484611224C5F41E00376A27 /* TimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCell.swift; sourceTree = "<group>"; };
+		A484611224C5F41E00376A27 /* TimeRangeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeRangeCell.swift; sourceTree = "<group>"; };
 		A484611424C5F7AE00376A27 /* AlarmTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTime.swift; sourceTree = "<group>"; };
 		A484611624C5FC1F00376A27 /* AlarmMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmMode.swift; sourceTree = "<group>"; };
 		A484611824C61DF600376A27 /* DataTypesExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTypesExtensions.swift; sourceTree = "<group>"; };
@@ -84,15 +111,34 @@
 		A4B479B624C5E3A100944FA0 /* launchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchScreen.png; sourceTree = "<group>"; };
 		A4B479B824C5E43C00944FA0 /* alarmBig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alarmBig.png; sourceTree = "<group>"; };
 		A4B479BA24C5E8EB00944FA0 /* SettingsVCCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVCCollectionView.swift; sourceTree = "<group>"; };
-		A4C735C124C75FEA0024C866 /* Night.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Night.mp3; sourceTree = "<group>"; };
-		A4C735C324C760930024C866 /* seaSurf.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = seaSurf.mp3; sourceTree = "<group>"; };
-		A4C735C524C761030024C866 /* river.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = river.mp3; sourceTree = "<group>"; };
-		A4C735C724C7619D0024C866 /* rain.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rain.mp3; sourceTree = "<group>"; };
 		A4C79CE224C6FF260085A328 /* AlarmsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmsManager.swift; sourceTree = "<group>"; };
 		A4C79CE424C6FF8A0085A328 /* AlarmNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmNotification.swift; sourceTree = "<group>"; };
-		A4C79CE624C70D850085A328 /* forestSound.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = forestSound.m4r; sourceTree = "<group>"; };
 		A4C79CEE24C732880085A328 /* CurrentAlarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentAlarm.swift; sourceTree = "<group>"; };
 		A4C79CF024C733110085A328 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		A4F0F82924CAD92100CC5BCB /* plane.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = plane.m4a; sourceTree = "<group>"; };
+		A4F0F82B24CAD99800CC5BCB /* SoundsLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundsLibrary.swift; sourceTree = "<group>"; };
+		A4F0F82F24CAF02B00CC5BCB /* waterfall.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = waterfall.m4a; sourceTree = "<group>"; };
+		A4F0F83124CAFBEB00CC5BCB /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		A4F0F83324CAFFB000CC5BCB /* wind.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = wind.m4a; sourceTree = "<group>"; };
+		A4F0F83524CB030C00CC5BCB /* piano.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = piano.m4a; sourceTree = "<group>"; };
+		A4F0F83924CB037300CC5BCB /* flute.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = flute.m4r; sourceTree = "<group>"; };
+		A4F0F83B24CB03E100CC5BCB /* tropicalForest.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = tropicalForest.m4r; sourceTree = "<group>"; };
+		A4F0F83D24CB047200CC5BCB /* tibet.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = tibet.m4r; sourceTree = "<group>"; };
+		A4F0F83F24CB0A2100CC5BCB /* stream.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = stream.m4r; sourceTree = "<group>"; };
+		A4F0F84124CB0AB200CC5BCB /* sea.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = sea.m4r; sourceTree = "<group>"; };
+		A4F0F84324CB0B1400CC5BCB /* train.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = train.m4r; sourceTree = "<group>"; };
+		A4F0F84524CB0B9C00CC5BCB /* beach.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = beach.m4r; sourceTree = "<group>"; };
+		A4F0F84724CB0C1A00CC5BCB /* birds.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = birds.m4r; sourceTree = "<group>"; };
+		A4F0F84924CB0C5D00CC5BCB /* cat.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = cat.m4r; sourceTree = "<group>"; };
+		A4F0F84B24CB0C9B00CC5BCB /* book.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = book.m4r; sourceTree = "<group>"; };
+		A4F0F84D24CB0EA500CC5BCB /* fireplace.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = fireplace.m4r; sourceTree = "<group>"; };
+		A4F0F84F24CB0F0700CC5BCB /* yoga.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = yoga.m4r; sourceTree = "<group>"; };
+		A4F0F85124CB0F3900CC5BCB /* money.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = money.m4r; sourceTree = "<group>"; };
+		A4F0F85324CB0FB100CC5BCB /* thunderstorm.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = thunderstorm.m4r; sourceTree = "<group>"; };
+		A4F0F85524CB100000CC5BCB /* city.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = city.m4r; sourceTree = "<group>"; };
+		A4F0F85724CB11F600CC5BCB /* chinese.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = chinese.m4r; sourceTree = "<group>"; };
+		D66F37B928E70A231EA88101 /* Pods-NatureAlarmClock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NatureAlarmClock.debug.xcconfig"; path = "Target Support Files/Pods-NatureAlarmClock/Pods-NatureAlarmClock.debug.xcconfig"; sourceTree = "<group>"; };
+		E0CEB3C0FFFF22DBE148B7C5 /* libPods-NatureAlarmClock.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NatureAlarmClock.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,17 +146,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49D501E03B39B0FBAAB860F2 /* libPods-NatureAlarmClock.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		670F8AC60C37DE5984BE7D2A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E0CEB3C0FFFF22DBE148B7C5 /* libPods-NatureAlarmClock.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A4782E8824C580D4002CA812 = {
 			isa = PBXGroup;
 			children = (
 				A4782E9324C580D4002CA812 /* NatureAlarmClock */,
 				A4782E9224C580D4002CA812 /* Products */,
+				F0AE9A7FE81796CA199D2CEA /* Pods */,
+				670F8AC60C37DE5984BE7D2A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,7 +189,7 @@
 				A4782EB124C582C6002CA812 /* Extensions */,
 				A4782EAB24C580E6002CA812 /* AppDelegates */,
 				A4782EA024C580D6002CA812 /* Assets.xcassets */,
-				A4782EB624C58670002CA812 /* Assets */,
+				A4782EB624C58670002CA812 /* Resourses */,
 				A4782EA524C580D6002CA812 /* Info.plist */,
 				A4782E9D24C580D4002CA812 /* NatureAlarmClock.xcdatamodeld */,
 				A4685D9624C6FA6200C9930C /* NatureAlarmClock.entitlements */,
@@ -188,9 +245,11 @@
 			isa = PBXGroup;
 			children = (
 				A4B479A424C59A2D00944FA0 /* AlarmsViewController.swift */,
+				A440259424C9CEB200A16509 /* AlarmsVCAudioPlayer.swift */,
 				A4B479AC24C5B52C00944FA0 /* SettingsViewController.swift */,
 				A4B479BA24C5E8EB00944FA0 /* SettingsVCCollectionView.swift */,
 				A473744424C9AB86000CFC2F /* NotificationsBannerVC.swift */,
+				A4F0F83124CAFBEB00CC5BCB /* SplashViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -212,32 +271,28 @@
 				A4782EB224C582DD002CA812 /* VCExtensions.swift */,
 				A4B479A624C5A2F200944FA0 /* Colors.swift */,
 				A484611824C61DF600376A27 /* DataTypesExtensions.swift */,
+				A440259224C9C0B500A16509 /* UIKitExtensions.swift */,
+				A440259624C9E0D600A16509 /* AlertExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		A4782EB624C58670002CA812 /* Assets */ = {
+		A4782EB624C58670002CA812 /* Resourses */ = {
 			isa = PBXGroup;
 			children = (
-				A473744224C9A080000CFC2F /* woodpecker.m4r */,
-				A4C79CE624C70D850085A328 /* forestSound.m4r */,
-				A4C735C524C761030024C866 /* river.mp3 */,
-				A4C735C724C7619D0024C866 /* rain.mp3 */,
-				A4C735C124C75FEA0024C866 /* Night.mp3 */,
-				A4C735C324C760930024C866 /* seaSurf.mp3 */,
-				A4782EB724C58687002CA812 /* wakeupImageBig.png */,
-				A4B479B824C5E43C00944FA0 /* alarmBig.png */,
-				A4B479B624C5E3A100944FA0 /* launchScreen.png */,
-				A4782EB924C58946002CA812 /* sleepImageBig.png */,
+				A4F0F82724CAD68500CC5BCB /* Sounds */,
+				A4F0F82824CAD69C00CC5BCB /* Images */,
 			);
-			path = Assets;
+			path = Resourses;
 			sourceTree = "<group>";
 		};
 		A4B479AE24C5C4AD00944FA0 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				A4B479AF24C5C4C800944FA0 /* SoundCell.swift */,
-				A484611224C5F41E00376A27 /* TimeCell.swift */,
+				A484611224C5F41E00376A27 /* TimeRangeCell.swift */,
+				A473744624C9B8DC000CFC2F /* TimeDurationCell.swift */,
+				A473744824C9B9FC000CFC2F /* TimeCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -255,8 +310,57 @@
 			children = (
 				A4C79CE224C6FF260085A328 /* AlarmsManager.swift */,
 				A473744024C8A0EE000CFC2F /* AudioHelper.swift */,
+				A4F0F82B24CAD99800CC5BCB /* SoundsLibrary.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		A4F0F82724CAD68500CC5BCB /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				A4F0F83324CAFFB000CC5BCB /* wind.m4a */,
+				A4F0F82924CAD92100CC5BCB /* plane.m4a */,
+				A4F0F82F24CAF02B00CC5BCB /* waterfall.m4a */,
+				A4F0F85524CB100000CC5BCB /* city.m4r */,
+				A4F0F85324CB0FB100CC5BCB /* thunderstorm.m4r */,
+				A4F0F85724CB11F600CC5BCB /* chinese.m4r */,
+				A4F0F85124CB0F3900CC5BCB /* money.m4r */,
+				A4F0F84F24CB0F0700CC5BCB /* yoga.m4r */,
+				A4F0F84D24CB0EA500CC5BCB /* fireplace.m4r */,
+				A4F0F84B24CB0C9B00CC5BCB /* book.m4r */,
+				A4F0F84924CB0C5D00CC5BCB /* cat.m4r */,
+				A4F0F84724CB0C1A00CC5BCB /* birds.m4r */,
+				A4F0F84524CB0B9C00CC5BCB /* beach.m4r */,
+				A4F0F84324CB0B1400CC5BCB /* train.m4r */,
+				A4F0F84124CB0AB200CC5BCB /* sea.m4r */,
+				A4F0F83F24CB0A2100CC5BCB /* stream.m4r */,
+				A4F0F83D24CB047200CC5BCB /* tibet.m4r */,
+				A4F0F83B24CB03E100CC5BCB /* tropicalForest.m4r */,
+				A4F0F83924CB037300CC5BCB /* flute.m4r */,
+				A4F0F83524CB030C00CC5BCB /* piano.m4a */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		A4F0F82824CAD69C00CC5BCB /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				A4782EB724C58687002CA812 /* wakeupImageBig.png */,
+				A4B479B824C5E43C00944FA0 /* alarmBig.png */,
+				A4B479B624C5E3A100944FA0 /* launchScreen.png */,
+				A4782EB924C58946002CA812 /* sleepImageBig.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		F0AE9A7FE81796CA199D2CEA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D66F37B928E70A231EA88101 /* Pods-NatureAlarmClock.debug.xcconfig */,
+				2F0B5123798108AF022893C8 /* Pods-NatureAlarmClock.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +370,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A4782EA824C580D6002CA812 /* Build configuration list for PBXNativeTarget "NatureAlarmClock" */;
 			buildPhases = (
+				4A3BDE5E2D7774DAEA5A9E8A /* [CP] Check Pods Manifest.lock */,
 				A4782E8D24C580D4002CA812 /* Sources */,
 				A4782E8E24C580D4002CA812 /* Frameworks */,
 				A4782E8F24C580D4002CA812 /* Resources */,
@@ -318,24 +423,63 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4B479AB24C5AC1F00944FA0 /* AlarmNavigationBarView.xib in Resources */,
+				A4F0F85424CB0FB100CC5BCB /* thunderstorm.m4r in Resources */,
+				A4F0F83624CB030C00CC5BCB /* piano.m4a in Resources */,
+				A4F0F85824CB11F700CC5BCB /* chinese.m4r in Resources */,
+				A4F0F83E24CB047200CC5BCB /* tibet.m4r in Resources */,
+				A4F0F84424CB0B1400CC5BCB /* train.m4r in Resources */,
+				A4F0F84C24CB0C9B00CC5BCB /* book.m4r in Resources */,
 				A4782EB824C58687002CA812 /* wakeupImageBig.png in Resources */,
-				A4C79CE724C70D850085A328 /* forestSound.m4r in Resources */,
-				A4C735C624C761030024C866 /* river.mp3 in Resources */,
+				A4F0F84624CB0BB300CC5BCB /* beach.m4r in Resources */,
 				A4782EBA24C58946002CA812 /* sleepImageBig.png in Resources */,
+				A4F0F83A24CB037300CC5BCB /* flute.m4r in Resources */,
+				A4F0F84824CB0C1A00CC5BCB /* birds.m4r in Resources */,
+				A4F0F84024CB0A2100CC5BCB /* stream.m4r in Resources */,
 				A4782EA424C580D6002CA812 /* LaunchScreen.storyboard in Resources */,
-				A4C735C224C75FEA0024C866 /* Night.mp3 in Resources */,
-				A4C735C424C760930024C866 /* seaSurf.mp3 in Resources */,
 				A4782EA124C580D6002CA812 /* Assets.xcassets in Resources */,
+				A4F0F85624CB100000CC5BCB /* city.m4r in Resources */,
+				A4F0F83C24CB03E100CC5BCB /* tropicalForest.m4r in Resources */,
+				A4F0F85224CB0F3900CC5BCB /* money.m4r in Resources */,
+				A4F0F82A24CAD92200CC5BCB /* plane.m4a in Resources */,
+				A4F0F83424CAFFB000CC5BCB /* wind.m4a in Resources */,
 				A4782EB524C58428002CA812 /* AlarmView.xib in Resources */,
+				A4F0F84E24CB0EA500CC5BCB /* fireplace.m4r in Resources */,
+				A4F0F84A24CB0C5D00CC5BCB /* cat.m4r in Resources */,
 				A4B479B724C5E3A200944FA0 /* launchScreen.png in Resources */,
 				A4B479B924C5E43C00944FA0 /* alarmBig.png in Resources */,
-				A4C735C824C7619D0024C866 /* rain.mp3 in Resources */,
-				A473744324C9A080000CFC2F /* woodpecker.m4r in Resources */,
+				A4F0F84224CB0AB200CC5BCB /* sea.m4r in Resources */,
+				A4F0F85024CB0F0700CC5BCB /* yoga.m4r in Resources */,
 				A4782E9C24C580D4002CA812 /* Main.storyboard in Resources */,
+				A4F0F83024CAF02B00CC5BCB /* waterfall.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4A3BDE5E2D7774DAEA5A9E8A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NatureAlarmClock-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A4782E8D24C580D4002CA812 /* Sources */ = {
@@ -345,6 +489,7 @@
 				A4B479BB24C5E8EB00944FA0 /* SettingsVCCollectionView.swift in Sources */,
 				A4B479A524C59A2D00944FA0 /* AlarmsViewController.swift in Sources */,
 				A484611924C61DF600376A27 /* DataTypesExtensions.swift in Sources */,
+				A473744924C9B9FC000CFC2F /* TimeCell.swift in Sources */,
 				A4685D9524C6D7B100C9930C /* SavedAlarms.swift in Sources */,
 				A4B479B224C5C5F100944FA0 /* Sound.swift in Sources */,
 				A4782E9F24C580D4002CA812 /* NatureAlarmClock.xcdatamodeld in Sources */,
@@ -352,21 +497,27 @@
 				A484611B24C6296700376A27 /* ClockTime.swift in Sources */,
 				A4782E9524C580D4002CA812 /* AppDelegate.swift in Sources */,
 				A484611524C5F7AE00376A27 /* AlarmTime.swift in Sources */,
+				A473744724C9B8DC000CFC2F /* TimeDurationCell.swift in Sources */,
 				A4C79CEF24C732880085A328 /* CurrentAlarm.swift in Sources */,
 				A4C79CE324C6FF260085A328 /* AlarmsManager.swift in Sources */,
+				A440259524C9CEB200A16509 /* AlarmsVCAudioPlayer.swift in Sources */,
 				A4B479B024C5C4C800944FA0 /* SoundCell.swift in Sources */,
 				A4B479A724C5A2F200944FA0 /* Colors.swift in Sources */,
 				A4782EBC24C58D75002CA812 /* AlarmView.swift in Sources */,
-				A484611324C5F41E00376A27 /* TimeCell.swift in Sources */,
+				A484611324C5F41E00376A27 /* TimeRangeCell.swift in Sources */,
 				A4B479B524C5CE3000944FA0 /* SectionHeaderView.swift in Sources */,
 				A473744524C9AB86000CFC2F /* NotificationsBannerVC.swift in Sources */,
 				A4C79CE524C6FF8A0085A328 /* AlarmNotification.swift in Sources */,
 				A4C79CF124C733110085A328 /* Globals.swift in Sources */,
+				A4F0F82C24CAD99800CC5BCB /* SoundsLibrary.swift in Sources */,
 				A4B479A924C5ABEC00944FA0 /* AlarmNavigationBarView.swift in Sources */,
 				A484611724C5FC1F00376A27 /* AlarmMode.swift in Sources */,
 				A4782EB324C582DD002CA812 /* VCExtensions.swift in Sources */,
+				A440259724C9E0D600A16509 /* AlertExtensions.swift in Sources */,
 				A4782E9724C580D4002CA812 /* SceneDelegate.swift in Sources */,
+				A440259324C9C0B500A16509 /* UIKitExtensions.swift in Sources */,
 				A4B479AD24C5B52C00944FA0 /* SettingsViewController.swift in Sources */,
+				A4F0F83224CAFBEB00CC5BCB /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,11 +659,12 @@
 		};
 		A4782EA924C580D6002CA812 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D66F37B928E70A231EA88101 /* Pods-NatureAlarmClock.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = NatureAlarmClock/NatureAlarmClock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = P89V4KBVYT;
 				INFOPLIST_FILE = NatureAlarmClock/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -529,11 +681,12 @@
 		};
 		A4782EAA24C580D6002CA812 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F0B5123798108AF022893C8 /* Pods-NatureAlarmClock.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = NatureAlarmClock/NatureAlarmClock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = P89V4KBVYT;
 				INFOPLIST_FILE = NatureAlarmClock/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;

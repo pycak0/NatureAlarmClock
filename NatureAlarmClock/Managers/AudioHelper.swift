@@ -34,21 +34,23 @@ class AudioHelper {
     }
     
     //MARK:- Create Destination Url
-    private static func createDestinationUrl(_ mainUrl: URL, _ secondUrl: URL) -> URL {
-        let mainName = mainUrl.deletingPathExtension().lastPathComponent
-        let secondName = secondUrl.deletingPathExtension().lastPathComponent
-        let fullFileName = mainName + secondName + ".m4a"
+    private static func createDestinationUrl(_ mainSound: Sound, _ secondSound: Sound) -> URL {
+        let fullFileName = mainSound.fileName + secondSound.fileName + ".m4a"
         return soundsDirectory.appendingPathComponent(fullFileName)
     }
 
     //MARK:- Merge Audios
-    static func mergeAudios(mainSound: Sound, secondSound: Sound, completion: @escaping ((URL?, ExportError?) -> Void)) {
-        guard let mainUrl = mainSound.url, let secondUrl = secondSound.url else {
+    ///Merges two audio files into a single one and saves at `Library/Sounds` directory with name `"mainNamesecondName.m4a"`
+    ///
+    ///The length of mixed audio is the length of the main sound. The second sound is looped or cropped to fit this length.
+    ///- warning: Works only with non-nil `Sound` objects and their valid sound URLs. If the arguments are not valid, passes an `ExportError.invalidUrl` in 'completion' block
+    static func mergeAudios(mainSound: Sound!, secondSound: Sound!, completion: @escaping ((URL?, ExportError?) -> Void)) {
+        guard mainSound != nil, secondSound != nil, let mainUrl = mainSound.url, let secondUrl = secondSound.url else {
             completion(nil, .invalidUrl)
             return
         }
         
-        let destinationUrl = createDestinationUrl(mainUrl, secondUrl)
+        let destinationUrl = createDestinationUrl(mainSound, secondSound)
         guard !FileManager.default.fileExists(atPath: destinationUrl.path) else {
             print("Returnning the existing audio at url \(destinationUrl)")
             completion(destinationUrl, nil)

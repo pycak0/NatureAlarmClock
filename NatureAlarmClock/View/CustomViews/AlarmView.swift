@@ -13,6 +13,7 @@ protocol AlarmViewDelegate: class {
     func alarmView(_ alarmView: AlarmView, didPressSwitchButton switchButton: UIButton)
 }
 
+//@IBDesignable
 class AlarmView: UIView {
     static let nibName = "AlarmView"
     
@@ -44,6 +45,12 @@ class AlarmView: UIView {
         self.time = time
     }
     
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        xibSetup()
+        contentView.prepareForInterfaceBuilder()
+    }
+    
     @IBAction private func switchButtonPressed(_ sender: UIButton) {
         delegate?.alarmView(self, didPressSwitchButton: sender)
     }
@@ -73,6 +80,11 @@ class AlarmView: UIView {
             }
             switchButton.tintColor = isSwitchedOn ? .systemGreen : .systemRed
         }
+    }
+    
+    func setSwitchButtonImage(_ image: UIImage?, tintColor: UIColor = .systemGreen) {
+        switchButton.setImage(image, for: .normal)
+        switchButton.tintColor = tintColor
     }
     
 }

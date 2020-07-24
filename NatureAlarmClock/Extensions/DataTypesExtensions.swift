@@ -6,7 +6,7 @@
 //  Copyright © 2020 Владислав. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 //MARK:- Date
 extension Date {
@@ -58,7 +58,15 @@ extension TimeInterval {
     
     //MARK:- Seconds In
     ///Returns time interval in seconds for widely-used types of time
-    static func secondsIn(_ time: TimeIntervalNames) -> Double {
-        return time.seconds
+    static func secondsIn(_ time: TimeIntervalNames, amount: Int = 1) -> TimeInterval {
+        return time.seconds * Double(amount)
+    }
+    
+    static func secondsIn(_ time: TimeIntervalNames, amount: Double = 1) -> TimeInterval {
+        return time.seconds * (amount)
+    }
+    
+    static func secondsIn(_ time: TimeIntervalNames, amount: CGFloat = 1) -> TimeInterval {
+        return time.seconds * Double(amount)
     }
 }

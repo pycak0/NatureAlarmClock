@@ -34,8 +34,12 @@ struct ClockTime {
         }
     }
     
-    var string: String {
+    var shortString: String {
         return String(format: "%02d:%02d", hour, minute)
+    }
+    
+    var fullString: String {
+        hour > 0 ? String(format: "%d ч %02d мин", hour, minute) : "\(minute) мин"
     }
     
     var date: Date {
@@ -52,5 +56,10 @@ struct ClockTime {
         components.hour = hour
         components.minute = minute
         return components
+    }
+    
+    ///Represents `ClockTime` object's amount of `hour` + `minute`  in seconds
+    var timeInterval: TimeInterval {
+        TimeInterval.secondsIn(.hour, amount: hour) + TimeInterval.secondsIn(.minute, amount: minute)
     }
 }

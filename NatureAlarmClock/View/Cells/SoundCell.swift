@@ -29,10 +29,12 @@ class SoundCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         contentView.layer.cornerRadius = 5
+        imageView.layer.cornerRadius = imageView.frame.width / 2
     }
 
     override func prepareForReuse() {
         super.prepareForReuse()
+        contentView.layer.borderWidth = 0
         pause()
         onReuse?()
     }
@@ -45,6 +47,9 @@ class SoundCell: UICollectionViewCell {
         //playButton.isUserInteractionEnabled = false
         
         soundNameLabel.text = sound.soundName
+        if let img = sound.thumbnailImage {
+            imageView.image = img
+        }
         guard let url = sound.url else {
             return
         }
