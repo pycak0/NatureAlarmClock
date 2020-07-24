@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import UserNotifications
+import YandexMobileMetrica
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,6 +26,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                print("not granted")
 //            }
 //        })
+        
+        // Initializing the AppMetrica SDK.
+        let configuration = YMMYandexMetricaConfiguration.init(apiKey: "b9af720f-2fbe-4527-bb28-27454f8c1095")
+        YMMYandexMetrica.activate(with: configuration!)
         
         let savedSleepAlarm = SavedAlarms.general.getAlarm(.sleep)
         let savedWakeAlarm = SavedAlarms.general.getAlarm(.wakeUp)
