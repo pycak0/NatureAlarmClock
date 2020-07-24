@@ -16,6 +16,7 @@
 		A473744524C9AB86000CFC2F /* NotificationsBannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A473744424C9AB86000CFC2F /* NotificationsBannerVC.swift */; };
 		A473744724C9B8DC000CFC2F /* TimeDurationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A473744624C9B8DC000CFC2F /* TimeDurationCell.swift */; };
 		A473744924C9B9FC000CFC2F /* TimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A473744824C9B9FC000CFC2F /* TimeCell.swift */; };
+		A477217E24CB1E80006D196D /* waterfall.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A477217D24CB1E80006D196D /* waterfall.m4r */; };
 		A4782E9524C580D4002CA812 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4782E9424C580D4002CA812 /* AppDelegate.swift */; };
 		A4782E9724C580D4002CA812 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4782E9624C580D4002CA812 /* SceneDelegate.swift */; };
 		A4782E9C24C580D4002CA812 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4782E9A24C580D4002CA812 /* Main.storyboard */; };
@@ -49,7 +50,6 @@
 		A4C79CF124C733110085A328 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C79CF024C733110085A328 /* Globals.swift */; };
 		A4F0F82A24CAD92200CC5BCB /* plane.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A4F0F82924CAD92100CC5BCB /* plane.m4a */; };
 		A4F0F82C24CAD99800CC5BCB /* SoundsLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0F82B24CAD99800CC5BCB /* SoundsLibrary.swift */; };
-		A4F0F83024CAF02B00CC5BCB /* waterfall.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A4F0F82F24CAF02B00CC5BCB /* waterfall.m4a */; };
 		A4F0F83224CAFBEB00CC5BCB /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0F83124CAFBEB00CC5BCB /* SplashViewController.swift */; };
 		A4F0F83424CAFFB000CC5BCB /* wind.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A4F0F83324CAFFB000CC5BCB /* wind.m4a */; };
 		A4F0F83624CB030C00CC5BCB /* piano.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A4F0F83524CB030C00CC5BCB /* piano.m4a */; };
@@ -82,6 +82,7 @@
 		A473744424C9AB86000CFC2F /* NotificationsBannerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsBannerVC.swift; sourceTree = "<group>"; };
 		A473744624C9B8DC000CFC2F /* TimeDurationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeDurationCell.swift; sourceTree = "<group>"; };
 		A473744824C9B9FC000CFC2F /* TimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCell.swift; sourceTree = "<group>"; };
+		A477217D24CB1E80006D196D /* waterfall.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = waterfall.m4r; sourceTree = "<group>"; };
 		A4782E9124C580D4002CA812 /* Будильник со звуками природы.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Будильник со звуками природы.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4782E9424C580D4002CA812 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4782E9624C580D4002CA812 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,7 +118,6 @@
 		A4C79CF024C733110085A328 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		A4F0F82924CAD92100CC5BCB /* plane.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = plane.m4a; sourceTree = "<group>"; };
 		A4F0F82B24CAD99800CC5BCB /* SoundsLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundsLibrary.swift; sourceTree = "<group>"; };
-		A4F0F82F24CAF02B00CC5BCB /* waterfall.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = waterfall.m4a; sourceTree = "<group>"; };
 		A4F0F83124CAFBEB00CC5BCB /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		A4F0F83324CAFFB000CC5BCB /* wind.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = wind.m4a; sourceTree = "<group>"; };
 		A4F0F83524CB030C00CC5BCB /* piano.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = piano.m4a; sourceTree = "<group>"; };
@@ -320,7 +320,7 @@
 			children = (
 				A4F0F83324CAFFB000CC5BCB /* wind.m4a */,
 				A4F0F82924CAD92100CC5BCB /* plane.m4a */,
-				A4F0F82F24CAF02B00CC5BCB /* waterfall.m4a */,
+				A477217D24CB1E80006D196D /* waterfall.m4r */,
 				A4F0F85524CB100000CC5BCB /* city.m4r */,
 				A4F0F85324CB0FB100CC5BCB /* thunderstorm.m4r */,
 				A4F0F85724CB11F600CC5BCB /* chinese.m4r */,
@@ -359,7 +359,6 @@
 				D66F37B928E70A231EA88101 /* Pods-NatureAlarmClock.debug.xcconfig */,
 				2F0B5123798108AF022893C8 /* Pods-NatureAlarmClock.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -433,6 +432,7 @@
 				A4F0F84624CB0BB300CC5BCB /* beach.m4r in Resources */,
 				A4782EBA24C58946002CA812 /* sleepImageBig.png in Resources */,
 				A4F0F83A24CB037300CC5BCB /* flute.m4r in Resources */,
+				A477217E24CB1E80006D196D /* waterfall.m4r in Resources */,
 				A4F0F84824CB0C1A00CC5BCB /* birds.m4r in Resources */,
 				A4F0F84024CB0A2100CC5BCB /* stream.m4r in Resources */,
 				A4782EA424C580D6002CA812 /* LaunchScreen.storyboard in Resources */,
@@ -450,7 +450,6 @@
 				A4F0F84224CB0AB200CC5BCB /* sea.m4r in Resources */,
 				A4F0F85024CB0F0700CC5BCB /* yoga.m4r in Resources */,
 				A4782E9C24C580D4002CA812 /* Main.storyboard in Resources */,
-				A4F0F83024CAF02B00CC5BCB /* waterfall.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

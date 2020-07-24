@@ -35,7 +35,7 @@ class SoundsLibrary {
     private static let mainSleepSounds: [Sound] = [
         Sound(name: "В самолёте", fileWIthExt: "plane.m4a"),
         Sound(name: "Ветер", fileWIthExt: "wind.m4a"),
-        Sound(name: "Водопад", fileWIthExt: "waterfall.m4a"),
+        Sound(name: "Водопад", fileWIthExt: "waterfall.m4r"),
         Sound(name: "Город", fileWIthExt: "city.m4r"),
         Sound(name: "Гроза", fileWIthExt: "thunderstorm.m4r"),
         Sound(name: "Деньги", fileWIthExt: "money.m4r"),
