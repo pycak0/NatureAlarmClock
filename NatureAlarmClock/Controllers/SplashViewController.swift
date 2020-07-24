@@ -12,16 +12,17 @@ class SplashViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        sleep(1)
-        setRootVC()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.setRootVC()
+        }
     }
     
     func setRootVC() {
         let vc = storyboard?.instantiateViewController(withIdentifier: "MainNavigationController")
-        let window = UIApplication.shared.windows.first
-        window?.rootViewController = vc
-        window?.makeKeyAndVisible()
-        UIView.transition(with: view, duration: 0.5, options: .transitionCrossDissolve, animations: nil, completion: nil)
+        let window = UIApplication.shared.windows.first!
+        window.rootViewController = vc
+        window.makeKeyAndVisible()
+        UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: nil, completion: nil)
     }
 
 }

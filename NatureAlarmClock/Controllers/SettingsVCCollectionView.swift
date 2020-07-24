@@ -135,6 +135,9 @@ extension SettingsViewController: UICollectionViewDelegateFlowLayout {
             let aspectRatio = CGFloat(10) / 13
             let width = (settingsCollectionView.frame.width - 2 * edgeinsets - interItemSpacing * (itemsPerRow - 1)) / itemsPerRow
             let height = width / aspectRatio
+            if let cell = collectionView.cellForItem(at: indexPath) as? SoundCell {
+                cell.layoutSubviews()
+            }
                         
             return CGSize(width: width, height: height)
         }

@@ -29,6 +29,10 @@ class SoundCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         contentView.layer.cornerRadius = 5
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
         imageView.layer.cornerRadius = imageView.frame.width / 2
     }
 
@@ -45,7 +49,6 @@ class SoundCell: UICollectionViewCell {
     
     func configure(with sound: Sound) {
         //playButton.isUserInteractionEnabled = false
-        
         soundNameLabel.text = sound.soundName
         if let img = sound.thumbnailImage {
             imageView.image = img

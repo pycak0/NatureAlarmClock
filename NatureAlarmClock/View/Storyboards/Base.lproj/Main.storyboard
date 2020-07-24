@@ -213,14 +213,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AQY-8B-6PS">
-                                            <rect key="frame" x="22" y="14.999999999999998" width="384" height="20.333333333333329"/>
+                                            <rect key="frame" x="18" y="14.999999999999998" width="388" height="20.333333333333329"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="AQY-8B-6PS" firstAttribute="leading" secondItem="V87-Vy-sOr" secondAttribute="leadingMargin" constant="14" id="eU3-Zz-MbP"/>
+                                        <constraint firstItem="AQY-8B-6PS" firstAttribute="leading" secondItem="V87-Vy-sOr" secondAttribute="leadingMargin" constant="10" id="eU3-Zz-MbP"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="AQY-8B-6PS" secondAttribute="trailing" id="huN-Oy-cex"/>
                                         <constraint firstItem="AQY-8B-6PS" firstAttribute="centerY" secondItem="V87-Vy-sOr" secondAttribute="centerY" id="wUq-yo-xMn"/>
                                     </constraints>

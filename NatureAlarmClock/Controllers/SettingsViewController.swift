@@ -18,7 +18,7 @@ class SettingsViewController: UIViewController {
             case .time:
                 return mode == .wakeUp ? "Начало и конец мелодии" : "Длительность мелодии"
             case .mainSound:
-                return "Основная мелодия"
+                return "Мелодия"
             case .additionalSound:
                 return "Дополнительные звуки"
             }
