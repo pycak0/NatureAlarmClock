@@ -34,6 +34,7 @@ class SettingsViewController: UIViewController {
     
     var sections = [Section: [Any]]()
     
+    //MARK:- Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBarTitleView(delegate: self, text: mode.message, tintColor: mode.color)
@@ -51,23 +52,12 @@ class SettingsViewController: UIViewController {
         configureCollectionView()
     }
     
+    //MARK:- Configure Data
     func configureData() {
         sections = [
-            .time : [
-                Globals.alarm(mode).alarmTime
-            ],
-            .mainSound : [
-                Sound(name: "Лес", file: "forestSound", withExtension: "m4r"),
-                Sound(name: "Дождь", file: "rain", withExtension: "mp3"),
-                Sound(name: "Прибой", file: "seaSurf", withExtension: "mp3"),
-                Sound(name: "Река", file: "river", withExtension: "mp3"),
-                Sound(name: "Ночь", file: "Night", withExtension: "mp3")
-            ],
-            .additionalSound : [
-                //Sound(name: "Чайка", file: "", withExtension: ""),
-                //Sound(name: "Дятел", file: "", withExtension: ""),
-                Sound(name: "Дятел", file: "woodpecker", withExtension: "m4r")
-            ]
+            .time : [Globals.alarm(mode).alarmTime],
+            .mainSound : SoundsLibrary.getMainSounds(mode),
+            .additionalSound : SoundsLibrary.getSecondarySounds(mode)
         ]
         for (section, value) in sections {
             print(section, value)

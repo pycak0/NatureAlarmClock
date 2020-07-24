@@ -13,7 +13,7 @@ import UIKit
 extension SettingsViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return Section.allCases.count
+        return (sections[.additionalSound]!.count > 0) ? 3 : 2
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

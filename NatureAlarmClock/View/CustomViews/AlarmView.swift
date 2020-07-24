@@ -13,6 +13,7 @@ protocol AlarmViewDelegate: class {
     func alarmView(_ alarmView: AlarmView, didPressSwitchButton switchButton: UIButton)
 }
 
+//@IBDesignable
 class AlarmView: UIView {
     static let nibName = "AlarmView"
     
@@ -42,6 +43,12 @@ class AlarmView: UIView {
         self.init()
         self.mode = mode
         self.time = time
+    }
+    
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        xibSetup()
+        contentView.prepareForInterfaceBuilder()
     }
     
     @IBAction private func switchButtonPressed(_ sender: UIButton) {

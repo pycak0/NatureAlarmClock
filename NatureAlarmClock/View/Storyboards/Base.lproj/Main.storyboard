@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8BR-MO-wyE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jrT-ep-yrZ">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -84,20 +84,20 @@
                                             <rect key="frame" x="0.0" y="0.0" width="111" height="144"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="soundImage" translatesAutoresizingMaskIntoConstraints="NO" id="rYf-iF-UUq">
-                                                    <rect key="frame" x="10" y="10" width="91" height="93"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Рассвет" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ald-DP-28s">
-                                                    <rect key="frame" x="0.0" y="113" width="111" height="21"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" image="soundImage" translatesAutoresizingMaskIntoConstraints="NO" id="rYf-iF-UUq">
+                                                    <rect key="frame" x="10" y="10" width="91" height="91"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="bHv-vu-6yo"/>
+                                                        <constraint firstAttribute="width" secondItem="rYf-iF-UUq" secondAttribute="height" multiplier="1:1" id="tft-DE-0og"/>
                                                     </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Китайская тема" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ald-DP-28s">
+                                                    <rect key="frame" x="6" y="111" width="99" height="20.333333333333343"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DVV-gq-mgs">
-                                                    <rect key="frame" x="38.666666666666664" y="39.666666666666664" width="33.999999999999993" height="33.999999999999993"/>
+                                                    <rect key="frame" x="38.666666666666664" y="38.666666666666664" width="33.999999999999993" height="33.999999999999993"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="34" id="Xs4-zR-uub"/>
                                                         <constraint firstAttribute="width" secondItem="DVV-gq-mgs" secondAttribute="height" multiplier="1:1" id="b71-3P-ryJ"/>
@@ -109,12 +109,12 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Ald-DP-28s" firstAttribute="leading" secondItem="B9m-Jp-chI" secondAttribute="leading" id="3m6-eB-Srh"/>
+                                                <constraint firstItem="Ald-DP-28s" firstAttribute="leading" secondItem="B9m-Jp-chI" secondAttribute="leading" constant="6" id="3m6-eB-Srh"/>
                                                 <constraint firstItem="rYf-iF-UUq" firstAttribute="top" secondItem="B9m-Jp-chI" secondAttribute="top" constant="10" id="4Zj-YZ-yOS"/>
                                                 <constraint firstItem="DVV-gq-mgs" firstAttribute="centerX" secondItem="rYf-iF-UUq" secondAttribute="centerX" id="6QR-Gg-llb"/>
-                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Ald-DP-28s" secondAttribute="bottom" constant="10" id="8fO-jp-b5e"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Ald-DP-28s" secondAttribute="bottom" constant="3" id="8fO-jp-b5e"/>
                                                 <constraint firstItem="rYf-iF-UUq" firstAttribute="leading" secondItem="B9m-Jp-chI" secondAttribute="leading" constant="10" id="Vkv-cs-TMA"/>
-                                                <constraint firstAttribute="trailing" secondItem="Ald-DP-28s" secondAttribute="trailing" id="hbF-72-USa"/>
+                                                <constraint firstItem="Ald-DP-28s" firstAttribute="centerX" secondItem="B9m-Jp-chI" secondAttribute="centerX" id="c76-gY-OLs"/>
                                                 <constraint firstAttribute="trailing" secondItem="rYf-iF-UUq" secondAttribute="trailing" constant="10" id="kZG-Dg-cap"/>
                                                 <constraint firstItem="DVV-gq-mgs" firstAttribute="centerY" secondItem="rYf-iF-UUq" secondAttribute="centerY" id="pbz-Td-8K0"/>
                                                 <constraint firstItem="Ald-DP-28s" firstAttribute="top" secondItem="rYf-iF-UUq" secondAttribute="bottom" constant="10" id="pna-FU-iLb"/>
@@ -292,8 +292,9 @@
         <!--Navigation Controller-->
         <scene sceneID="vjJ-zw-shO">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8BR-MO-wyE" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MainNavigationController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="8BR-MO-wyE" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="JIj-ls-RWQ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="COq-sN-VNa">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -310,9 +311,68 @@
             </objects>
             <point key="canvasLocation" x="-331.8840579710145" y="-107.14285714285714"/>
         </scene>
+        <!--Splash View Controller-->
+        <scene sceneID="bik-5F-FLh">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="jrT-ep-yrZ" customClass="SplashViewController" customModule="Будильник_со_звуками_природы" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RTm-cI-XVa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchScreen.png" translatesAutoresizingMaskIntoConstraints="NO" id="fo5-Vc-bF4">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="center" axis="vertical" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zBy-Ho-S4R">
+                                <rect key="frame" x="20" y="270.33333333333337" width="374" height="355.33333333333337"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="alarmBig.png" translatesAutoresizingMaskIntoConstraints="NO" id="tPF-dx-HUT">
+                                        <rect key="frame" x="93.666666666666686" y="0.0" width="187" height="254"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="БУДИЛЬНИК" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="03w-yR-HHl">
+                                        <rect key="frame" x="0.0" y="264.00000000000006" width="374" height="40.666666666666686"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUf-08-Kw3">
+                                        <rect key="frame" x="142" y="314.66666666666669" width="90" height="40.666666666666686"/>
+                                        <string key="text">со звуками
+природы</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="03w-yR-HHl" secondAttribute="width" id="A6i-WX-Rxw"/>
+                                    <constraint firstItem="tPF-dx-HUT" firstAttribute="width" secondItem="zBy-Ho-S4R" secondAttribute="width" multiplier="0.5" id="nfj-kZ-vq3"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="fo5-Vc-bF4" firstAttribute="top" secondItem="RTm-cI-XVa" secondAttribute="top" id="8On-8p-UCL"/>
+                            <constraint firstItem="zBy-Ho-S4R" firstAttribute="centerX" secondItem="fo5-Vc-bF4" secondAttribute="centerX" id="B76-Pt-vAx"/>
+                            <constraint firstItem="fo5-Vc-bF4" firstAttribute="leading" secondItem="RTm-cI-XVa" secondAttribute="leading" id="BZd-Fd-bCE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zBy-Ho-S4R" secondAttribute="trailing" id="Ce4-mp-1cB"/>
+                            <constraint firstAttribute="trailing" secondItem="fo5-Vc-bF4" secondAttribute="trailing" id="ObU-yi-Ehr"/>
+                            <constraint firstAttribute="bottom" secondItem="fo5-Vc-bF4" secondAttribute="bottom" id="S6g-PI-mGh"/>
+                            <constraint firstItem="zBy-Ho-S4R" firstAttribute="leading" secondItem="RTm-cI-XVa" secondAttribute="leadingMargin" id="Sxb-kr-b7b"/>
+                            <constraint firstItem="zBy-Ho-S4R" firstAttribute="centerY" secondItem="fo5-Vc-bF4" secondAttribute="centerY" id="q0L-uk-4zG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4am-9L-BDp"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VkH-kx-IBS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1303" y="-107"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Play" width="50" height="50"/>
+        <image name="alarmBig.png" width="254" height="254"/>
+        <image name="launchScreen.png" width="640" height="1136"/>
         <image name="soundImage" width="160" height="160"/>
     </resources>
 </document>

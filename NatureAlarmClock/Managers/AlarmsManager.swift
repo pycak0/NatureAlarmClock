@@ -38,7 +38,7 @@ class AlarmsManager {
         }
         
         let interval = endDate.timeIntervalSince(startDate)
-        var secondsPerNotification = 8
+        var secondsPerNotification = 30
 //        if interval <= 16 * TimeInterval.secondsIn(.minute) {
 //            secondsPerNotification = 15
 //        }
