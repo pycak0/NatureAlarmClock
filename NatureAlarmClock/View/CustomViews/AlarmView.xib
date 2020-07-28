@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -67,7 +67,7 @@
                         <constraint firstAttribute="width" constant="34" id="miO-Yh-VQd"/>
                         <constraint firstAttribute="width" secondItem="6M1-m0-g0g" secondAttribute="height" multiplier="1:1" id="ny8-rO-TzX"/>
                     </constraints>
-                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                     <state key="normal" image="Settings"/>
                     <connections>
                         <action selector="settingsButtonPressed:" destination="-1" eventType="touchUpInside" id="brE-IM-aYv"/>
