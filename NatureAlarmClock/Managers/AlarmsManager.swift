@@ -21,6 +21,7 @@ class AlarmsManager {
             print("Alarm mode '\(alarm.mode)' is switched off")
             return
         }
+        alarmIsSetNotification()
         cancelPendingNotifications(alarm.mode) {
             self.schedule(alarm)
         }
@@ -80,6 +81,22 @@ class AlarmsManager {
         }
     }
     
+    func alarmIsSetNotification() {
+        let content = UNMutableNotificationContent()
+        content.title = "Будильник установлен"
+        content.body = "Уведомления будут приходить каждые 30 секунд в течение заданного времени"
+        content.sound = .none
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.3, repeats: false)
+        let request = UNNotificationRequest(identifier: "success", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request) { (error) in
+            guard error == nil else {
+                print(error!)
+                return
+            }
+        }
+    }
+    
     func cancelAllPendingNotifications() {
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     }
@@ -87,6 +104,7 @@ class AlarmsManager {
     ///- parameter handler: A block to execute after all notifications are cancelled
     func cancelPendingNotifications(_ mode: AlarmMode, handler: (() -> Void)? = nil) {
         UNUserNotificationCenter.current().getPendingNotificationRequests { (requests) in
+            print("Found \(requests.count) pending requests")
             var removeIDs = [String]()
             requests.forEach {
                 let id = $0.identifier
