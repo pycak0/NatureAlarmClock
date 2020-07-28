@@ -48,10 +48,14 @@ extension AlarmsViewController {
         sleepAlarmView.time = timeLeft.formattedString
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] (timer) in
             timeLeft -= 1
+            self?.sleepAlarmView.time = timeLeft.formattedString
             if timeLeft == 0 {
                 self?.stopPlayer()
+                return
             }
-            self?.sleepAlarmView.time = timeLeft.formattedString
+            if timeLeft == 3 {
+                self?.player?.setVolume(0, fadeDuration: 2)
+            }
         }
     }
     
