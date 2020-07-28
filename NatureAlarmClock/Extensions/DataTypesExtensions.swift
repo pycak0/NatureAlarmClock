@@ -33,6 +33,7 @@ extension Date {
 }
 
 
+//MARK:- TimeInterval
 extension TimeInterval {
     enum TimeIntervalNames {
         case minute, hour, day, week, year, leapYear
@@ -68,5 +69,15 @@ extension TimeInterval {
     
     static func secondsIn(_ time: TimeIntervalNames, amount: CGFloat = 1) -> TimeInterval {
         return time.seconds * Double(amount)
+    }
+    
+    var formattedString: String {
+        let time = Int(self)
+        let seconds = time % 60
+        let minutes = (time / 60) % 60
+        let hours = time / 3600
+        return hours > 0 ?
+            String(format: "%d:%02d:%02d", hours, minutes, seconds) :
+            String(format: "%02d:%02d", minutes, seconds)
     }
 }

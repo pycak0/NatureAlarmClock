@@ -83,7 +83,7 @@
 		A473744624C9B8DC000CFC2F /* TimeDurationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeDurationCell.swift; sourceTree = "<group>"; };
 		A473744824C9B9FC000CFC2F /* TimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCell.swift; sourceTree = "<group>"; };
 		A477217D24CB1E80006D196D /* waterfall.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = waterfall.m4r; sourceTree = "<group>"; };
-		A4782E9124C580D4002CA812 /* Будильник со звуками природы.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Будильник со звуками природы.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4782E9124C580D4002CA812 /* Nature Alarms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nature Alarms.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4782E9424C580D4002CA812 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4782E9624C580D4002CA812 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A4782E9B24C580D4002CA812 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -174,7 +174,7 @@
 		A4782E9224C580D4002CA812 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A4782E9124C580D4002CA812 /* Будильник со звуками природы.app */,
+				A4782E9124C580D4002CA812 /* Nature Alarms.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -380,7 +380,7 @@
 			);
 			name = NatureAlarmClock;
 			productName = NatureAlarmClock;
-			productReference = A4782E9124C580D4002CA812 /* Будильник со звуками природы.app */;
+			productReference = A4782E9124C580D4002CA812 /* Nature Alarms.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -672,7 +672,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.pycak.AlarmClockNature;
-				PRODUCT_NAME = "Будильник со звуками природы";
+				PRODUCT_NAME = "Nature Alarms";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -694,7 +694,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.pycak.AlarmClockNature;
-				PRODUCT_NAME = "Будильник со звуками природы";
+				PRODUCT_NAME = "Nature Alarms";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

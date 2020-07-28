@@ -39,9 +39,19 @@ extension AlarmsViewController {
        // sleepAlarmView.setSwitchButtonImage(UIImage(named: "Play"))
         
         print("Timer for \(Globals.alarm(mode).alarmTime.start.timeInterval) sec")
-        timer = Timer.scheduledTimer(withTimeInterval: Globals.alarm(mode).alarmTime.start.timeInterval, repeats: false) { (t) in
-            print("Timer fired")
-            self.stopPlayer()
+//        timer = Timer.scheduledTimer(withTimeInterval: Globals.alarm(mode).alarmTime.start.timeInterval, repeats: false) { (t) in
+//            print("Timer fired")
+//            self.stopPlayer()
+//        }
+        
+        var timeLeft = Globals.alarm(mode).alarmTime.start.timeInterval
+        sleepAlarmView.time = timeLeft.formattedString
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] (timer) in
+            timeLeft -= 1
+            if timeLeft == 0 {
+                self?.stopPlayer()
+            }
+            self?.sleepAlarmView.time = timeLeft.formattedString
         }
     }
     
@@ -50,6 +60,7 @@ extension AlarmsViewController {
         player?.stop()
         Globals.alarm(.sleep).isSwitchedOn = false
         sleepAlarmView.isSwitchedOn = false
+        sleepAlarmView.time = Globals.alarm(.sleep).alarmTime.start.fullString
         timer?.invalidate()
     }
 }
