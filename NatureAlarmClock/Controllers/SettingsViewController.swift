@@ -44,7 +44,7 @@ class SettingsViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        SavedAlarms.general.saveAlarm(mode, currentAlarm: Globals.alarm(mode))
+        SavedAlarmsManager.general.saveAlarm(mode, currentAlarm: Globals.alarm(mode))
         schdeuleCurrentNotification(mode)
     }
     
@@ -103,7 +103,7 @@ class SettingsViewController: UIViewController {
 extension SettingsViewController: TimeRangeCellDelegate {
     func timeCell(_ timeCell: TimeRangeCell, didChangeTimeValues startDate: Date, endDate: Date) {
         Globals.alarms[mode]?.alarmTime = AlarmTime(startDate: startDate, endDate: endDate)
-        SavedAlarms.general.saveAlarm(mode, currentAlarm: Globals.alarm(mode))
+        SavedAlarmsManager.general.saveAlarm(mode, currentAlarm: Globals.alarm(mode))
       //  schdeuleCurrentNotification(mode)
     }
 }
@@ -113,7 +113,7 @@ extension SettingsViewController: TimeDurationCellDelegate {
         Globals.alarm(mode).alarmTime.start = ClockTime(hour: hours, minute: minutes)
         Globals.alarm(mode).alarmTime.end = ClockTime(hour: hours, minute: minutes)
         
-        SavedAlarms.general.saveAlarm(mode, currentAlarm: Globals.alarm(mode))
+        SavedAlarmsManager.general.saveAlarm(mode, currentAlarm: Globals.alarm(mode))
     }
 }
 
@@ -127,7 +127,7 @@ extension SettingsViewController: SoundCellDelegate {
         guard let indexPath = settingsCollectionView.indexPath(for: soundCell),
             let sectionKind = Section(rawValue: indexPath.section) else { return }
         let shouldPlay = !soundCell.isPlaying
-        pausePlayers(in: settingsCollectionView, at: sectionKind)
+        pausePlayers(in: settingsCollectionView, in: sectionKind)
         if shouldPlay {
             soundCell.play()
         }

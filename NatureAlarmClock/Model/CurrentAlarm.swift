@@ -14,7 +14,7 @@ class CurrentAlarm {
     var secondarySoundFileName: String
     var isSwitchedOn: Bool
     
-    init(_ savedAlarm: SavedAlarms.SavedAlarm) {
+    init(_ savedAlarm: SavedAlarmsManager.SavedAlarm) {
         self.alarmTime = AlarmTime(startDate: savedAlarm.startDate, endDate: savedAlarm.endDate)
         self.mainSoundFileName = savedAlarm.mainSoundName
         self.secondarySoundFileName = savedAlarm.secondSoundName
@@ -53,9 +53,9 @@ class CurrentAlarm {
         } else { return nil }
     }
     
-    var savedAlarm: SavedAlarms.SavedAlarm {
-        let dict = SavedAlarms.general.savedAlarmDict(self)
-        return SavedAlarms.SavedAlarm(dict)
+    var savedAlarm: SavedAlarmsManager.SavedAlarm {
+        let dict = SavedAlarmsManager.general.savedAlarmDict(self)
+        return SavedAlarmsManager.SavedAlarm(dict)
     }
     
 }

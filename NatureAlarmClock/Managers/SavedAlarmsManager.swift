@@ -1,5 +1,5 @@
 //
-//MARK:  SavedAlarms.swift
+//MARK:  SavedAlarmsManager.swift
 //  NatureAlarmClock
 //
 //  Created by Владислав on 21.07.2020.
@@ -8,11 +8,11 @@
 
 import Foundation
 
-class SavedAlarms {
+class SavedAlarmsManager {
     //singleton
     private init() {}
     
-    static let general = SavedAlarms()
+    static let general = SavedAlarmsManager()
     
     private let defaults = UserDefaults.standard
     
@@ -30,7 +30,7 @@ class SavedAlarms {
         init(_ dictionary: [String: Any], defaultStartDate: Date = Date()) {
             self.startDate = dictionary[AlarmKeys.startDate.rawValue] as? Date ?? defaultStartDate
             self.endDate = dictionary[AlarmKeys.endDate.rawValue] as? Date ?? Date()
-            self.mainSoundName = dictionary[AlarmKeys.mainSound.rawValue] as? String ?? "forestSound.m4r"
+            self.mainSoundName = dictionary[AlarmKeys.mainSound.rawValue] as? String ?? "plane.m4a"
             self.secondSoundName = dictionary[AlarmKeys.secondSound.rawValue] as? String ?? "woodpecker.m4r"
             self.isSwitchedOn = dictionary[AlarmKeys.switchedOn.rawValue] as? Bool ?? false
         }

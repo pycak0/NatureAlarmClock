@@ -31,8 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let configuration = YMMYandexMetricaConfiguration.init(apiKey: "b9af720f-2fbe-4527-bb28-27454f8c1095")
         YMMYandexMetrica.activate(with: configuration!)
         
-        let savedSleepAlarm = SavedAlarms.general.getAlarm(.sleep)
-        let savedWakeAlarm = SavedAlarms.general.getAlarm(.wakeUp)
+        let savedSleepAlarm = SavedAlarmsManager.general.getAlarm(.sleep)
+        let savedWakeAlarm = SavedAlarmsManager.general.getAlarm(.wakeUp)
         print(savedWakeAlarm)
         Globals.sleepAlarm = CurrentAlarm(savedSleepAlarm)
         Globals.sleepAlarm.isSwitchedOn = false
@@ -46,14 +46,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     func applicationDidEnterBackground(_ application: UIApplication) {
         print("Application did enter background. Saving Alarms Data...")
-        SavedAlarms.general.saveAlarm(.sleep, alarm: Globals.alarm(.sleep).savedAlarm)
-        SavedAlarms.general.saveAlarm(.wakeUp, alarm: Globals.alarm(.wakeUp).savedAlarm)
+        SavedAlarmsManager.general.saveAlarm(.sleep, alarm: Globals.alarm(.sleep).savedAlarm)
+        SavedAlarmsManager.general.saveAlarm(.wakeUp, alarm: Globals.alarm(.wakeUp).savedAlarm)
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
         print("App will terminate. Saving Alarms Data")
-        SavedAlarms.general.saveAlarm(.sleep, alarm: Globals.alarm(.sleep).savedAlarm)
-        SavedAlarms.general.saveAlarm(.wakeUp, alarm: Globals.alarm(.wakeUp).savedAlarm)
+        SavedAlarmsManager.general.saveAlarm(.sleep, alarm: Globals.alarm(.sleep).savedAlarm)
+        SavedAlarmsManager.general.saveAlarm(.wakeUp, alarm: Globals.alarm(.wakeUp).savedAlarm)
     }
 
     // MARK: UISceneSession Lifecycle

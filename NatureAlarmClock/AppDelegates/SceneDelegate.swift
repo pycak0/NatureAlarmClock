@@ -44,8 +44,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func sceneDidEnterBackground(_ scene: UIScene) {
         print("Scene did enter background")
-        SavedAlarms.general.saveAlarm(.sleep, currentAlarm: Globals.sleepAlarm)
-        SavedAlarms.general.saveAlarm(.wakeUp, currentAlarm: Globals.wakeUpAlarm)
+        SavedAlarmsManager.general.saveAlarm(.sleep, currentAlarm: Globals.sleepAlarm)
+        SavedAlarmsManager.general.saveAlarm(.wakeUp, currentAlarm: Globals.wakeUpAlarm)
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.

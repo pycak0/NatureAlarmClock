@@ -9,7 +9,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AlarmView" customModule="Будильник_со_звуками_природы" customModuleProvider="target">
             <connections>
-                <outlet property="contentView" destination="iN0-l3-epB" id="Vmx-kX-Wfs"/>
                 <outlet property="imageView" destination="MOa-ey-OkV" id="2dh-Na-zMm"/>
                 <outlet property="messageLabel" destination="PgP-Yw-Kzn" id="nFj-el-g5t"/>
                 <outlet property="settingsButton" destination="6M1-m0-g0g" id="EuY-cw-1Qx"/>

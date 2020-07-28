@@ -11,7 +11,7 @@
 		A440259324C9C0B500A16509 /* UIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A440259224C9C0B500A16509 /* UIKitExtensions.swift */; };
 		A440259524C9CEB200A16509 /* AlarmsVCAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A440259424C9CEB200A16509 /* AlarmsVCAudioPlayer.swift */; };
 		A440259724C9E0D600A16509 /* AlertExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A440259624C9E0D600A16509 /* AlertExtensions.swift */; };
-		A4685D9524C6D7B100C9930C /* SavedAlarms.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4685D9424C6D7B100C9930C /* SavedAlarms.swift */; };
+		A4685D9524C6D7B100C9930C /* SavedAlarmsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4685D9424C6D7B100C9930C /* SavedAlarmsManager.swift */; };
 		A473744124C8A0EE000CFC2F /* AudioHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A473744024C8A0EE000CFC2F /* AudioHelper.swift */; };
 		A473744524C9AB86000CFC2F /* NotificationsBannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A473744424C9AB86000CFC2F /* NotificationsBannerVC.swift */; };
 		A473744724C9B8DC000CFC2F /* TimeDurationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A473744624C9B8DC000CFC2F /* TimeDurationCell.swift */; };
@@ -76,7 +76,7 @@
 		A440259224C9C0B500A16509 /* UIKitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitExtensions.swift; sourceTree = "<group>"; };
 		A440259424C9CEB200A16509 /* AlarmsVCAudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmsVCAudioPlayer.swift; sourceTree = "<group>"; };
 		A440259624C9E0D600A16509 /* AlertExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertExtensions.swift; sourceTree = "<group>"; };
-		A4685D9424C6D7B100C9930C /* SavedAlarms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedAlarms.swift; sourceTree = "<group>"; };
+		A4685D9424C6D7B100C9930C /* SavedAlarmsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedAlarmsManager.swift; sourceTree = "<group>"; };
 		A4685D9624C6FA6200C9930C /* NatureAlarmClock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NatureAlarmClock.entitlements; sourceTree = "<group>"; };
 		A473744024C8A0EE000CFC2F /* AudioHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioHelper.swift; sourceTree = "<group>"; };
 		A473744424C9AB86000CFC2F /* NotificationsBannerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsBannerVC.swift; sourceTree = "<group>"; };
@@ -233,7 +233,6 @@
 				A484611424C5F7AE00376A27 /* AlarmTime.swift */,
 				A484611624C5FC1F00376A27 /* AlarmMode.swift */,
 				A484611A24C6296700376A27 /* ClockTime.swift */,
-				A4685D9424C6D7B100C9930C /* SavedAlarms.swift */,
 				A4C79CE424C6FF8A0085A328 /* AlarmNotification.swift */,
 				A4C79CEE24C732880085A328 /* CurrentAlarm.swift */,
 				A4C79CF024C733110085A328 /* Globals.swift */,
@@ -311,6 +310,7 @@
 				A4C79CE224C6FF260085A328 /* AlarmsManager.swift */,
 				A473744024C8A0EE000CFC2F /* AudioHelper.swift */,
 				A4F0F82B24CAD99800CC5BCB /* SoundsLibrary.swift */,
+				A4685D9424C6D7B100C9930C /* SavedAlarmsManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -489,7 +489,7 @@
 				A4B479A524C59A2D00944FA0 /* AlarmsViewController.swift in Sources */,
 				A484611924C61DF600376A27 /* DataTypesExtensions.swift in Sources */,
 				A473744924C9B9FC000CFC2F /* TimeCell.swift in Sources */,
-				A4685D9524C6D7B100C9930C /* SavedAlarms.swift in Sources */,
+				A4685D9524C6D7B100C9930C /* SavedAlarmsManager.swift in Sources */,
 				A4B479B224C5C5F100944FA0 /* Sound.swift in Sources */,
 				A4782E9F24C580D4002CA812 /* NatureAlarmClock.xcdatamodeld in Sources */,
 				A473744124C8A0EE000CFC2F /* AudioHelper.swift in Sources */,
@@ -663,7 +663,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = NatureAlarmClock/NatureAlarmClock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = P89V4KBVYT;
 				INFOPLIST_FILE = NatureAlarmClock/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -685,7 +685,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = NatureAlarmClock/NatureAlarmClock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = P89V4KBVYT;
 				INFOPLIST_FILE = NatureAlarmClock/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;

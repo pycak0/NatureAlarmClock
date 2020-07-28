@@ -119,7 +119,7 @@ extension AlarmsViewController: AlarmViewDelegate {
         
         Globals.alarm(alarmView.mode).isSwitchedOn.toggle()
         alarmView.isSwitchedOn.toggle()
-        SavedAlarms.general.saveAlarm(alarmView.mode, currentAlarm: Globals.alarm(alarmView.mode))
+        SavedAlarmsManager.general.saveAlarm(alarmView.mode, currentAlarm: Globals.alarm(alarmView.mode))
         manageAlarm(alarmView.mode)
     }
     

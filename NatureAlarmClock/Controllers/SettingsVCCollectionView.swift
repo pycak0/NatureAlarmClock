@@ -50,15 +50,7 @@ extension SettingsViewController: UICollectionViewDataSource, UICollectionViewDe
             let sound = sections[sectionKind]![indexPath.row] as! Sound
             soundCell.configure(with: sound)
             soundCell.delegate = self
-            if sound.fileNamePlusExtension == Globals.alarm(mode).mainSoundFileName {
-                soundCell.setSelected(mode)
-                pickedMainSound = sound
-            }
-            
-            if sound.fileNamePlusExtension == Globals.alarm(mode).secondarySoundFileName {
-                soundCell.setSelected(mode)
-                pickedSecondSound = sound
-            }
+            checkSelectedStatus(for: soundCell, at: indexPath)
             
             return soundCell
         }
@@ -92,7 +84,7 @@ extension SettingsViewController: UICollectionViewDataSource, UICollectionViewDe
         case .additionalSound:
             guard let cell = collectionView.cellForItem(at: indexPath) as? SoundCell,
                 let sound = sections[sectionKind]?[indexPath.row] as? Sound else { return }
-            deselectItems(in: collectionView, at: sectionKind)
+            deselectItems(in: collectionView, in: sectionKind)
             cell.setSelected(mode)
             
             Globals.alarm(mode).secondarySoundFileName = sound.fileNamePlusExtension
@@ -101,13 +93,15 @@ extension SettingsViewController: UICollectionViewDataSource, UICollectionViewDe
         case .mainSound:
             guard let cell = collectionView.cellForItem(at: indexPath) as? SoundCell,
                 let sound = sections[sectionKind]?[indexPath.row] as? Sound else { return }
-            deselectItems(in: collectionView, at: sectionKind)
+            deselectItems(in: collectionView, in: sectionKind)
             cell.setSelected(mode)
             
             Globals.alarm(mode).mainSoundFileName = sound.fileNamePlusExtension
             pickedMainSound = sound
            // schdeuleCurrentNotification(mode)
         }
+        
+        SavedAlarmsManager.general.saveAlarm(mode, currentAlarm: Globals.alarm(mode))
         
         AudioHelper.mergeAudios(mainSound: pickedMainSound, secondSound: pickedSecondSound) { (url, error) in
             print(error ?? "success")
@@ -116,6 +110,18 @@ extension SettingsViewController: UICollectionViewDataSource, UICollectionViewDe
     
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         return indexPath.section != 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        (cell as? SoundCell)?.pause()
+        (cell as? SoundCell)?.deselect()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let soundCell = cell as? SoundCell else {
+            return
+        }
+        checkSelectedStatus(for: soundCell, at: indexPath)
     }
 }
 
@@ -150,7 +156,7 @@ extension SettingsViewController: UICollectionViewDelegateFlowLayout {
 
 
 extension SettingsViewController {
-    func deselectItems(in collectionView: UICollectionView, at section: Section) {
+    func deselectItems(in collectionView: UICollectionView, in section: Section) {
         collectionView.indexPathsForVisibleItems.forEach { (indexPath) in
             if Section(rawValue: indexPath.section) == section  {
                 collectionView.deselectItem(at: indexPath, animated: true)
@@ -161,7 +167,22 @@ extension SettingsViewController {
         }
     }
     
-    func pausePlayers(in collectionView: UICollectionView, at section: Section) {
+    func checkSelectedStatus(for cell: SoundCell, at indexPath: IndexPath) {
+        guard let sectionKind = Section(rawValue: indexPath.section),
+            let sound = sections[sectionKind]?[indexPath.row] as? Sound
+        else {
+            return
+        }
+        
+        if Globals.alarm(mode).mainSoundFileName == sound.fileNamePlusExtension ||
+        Globals.alarm(mode).secondarySoundFileName == sound.fileNamePlusExtension {
+            cell.setSelected(mode)
+        } else {
+            cell.deselect()
+        }
+    }
+    
+    func pausePlayers(in collectionView: UICollectionView, in section: Section) {
         collectionView.indexPathsForVisibleItems.forEach { (indexPath) in
             if Section(rawValue: indexPath.section) == section  {
                 if let cell = collectionView.cellForItem(at: indexPath) as? SoundCell {

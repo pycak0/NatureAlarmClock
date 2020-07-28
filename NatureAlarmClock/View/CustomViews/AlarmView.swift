@@ -13,14 +13,14 @@ protocol AlarmViewDelegate: class {
     func alarmView(_ alarmView: AlarmView, didPressSwitchButton switchButton: UIButton)
 }
 
-//@IBDesignable
+@IBDesignable
 class AlarmView: UIView {
     static let nibName = "AlarmView"
     
     weak var delegate: AlarmViewDelegate?
     
     //MARK:- Properties
-    @IBOutlet private var contentView: UIView!
+    private var contentView: UIView!
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var switchButton: UIButton!
     @IBOutlet private weak var settingsButton: UIButton!
@@ -45,11 +45,11 @@ class AlarmView: UIView {
         self.time = time
     }
     
-    override func prepareForInterfaceBuilder() {
-        super.prepareForInterfaceBuilder()
-        xibSetup()
-        contentView.prepareForInterfaceBuilder()
-    }
+//    override func prepareForInterfaceBuilder() {
+//        super.prepareForInterfaceBuilder()
+//        xibSetup()
+//        contentView.prepareForInterfaceBuilder()
+//    }
     
     @IBAction private func switchButtonPressed(_ sender: UIButton) {
         delegate?.alarmView(self, didPressSwitchButton: sender)
@@ -93,10 +93,11 @@ private extension AlarmView {
     
     //MARK:- Xib Setup
     func xibSetup() {
-        Bundle.main.loadNibNamed(AlarmView.nibName, owner: self, options: nil)
-        self.addSubview(contentView)
+        let nib = UINib(nibName: AlarmView.nibName, bundle: Bundle.main)
+        contentView = nib.instantiate(withOwner: self, options: nil).first as? UIView
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        self.addSubview(contentView)
     }
     
     func configureViews(_ mode: AlarmMode) {
